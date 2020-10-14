@@ -3,10 +3,27 @@
 
 ## MoSCoW 
 
-### Must have
-### Should have
-### Could have
-### Would have
+### Must have...
+*
+*
+*
+### Should have...
+*
+*
+*
+### Could have...
+*
+*
+*
+### Would have...
+*
+*
+*
 
 ## Risk Assessment
 
+### Software Engineering 
+
+### DevOps
+
+### Team 
