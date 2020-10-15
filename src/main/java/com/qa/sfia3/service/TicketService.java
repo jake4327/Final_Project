@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class PlayerService {
+public class TicketService {
 
     private final TicketRepository repo;
     private final ModelMapper mapper;
@@ -47,6 +47,7 @@ public class PlayerService {
     public TicketDTO updateStatus(Long id, Ticket ticket) {
         Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
         update.setStatus(ticket.getStatus());
+        return this.mapToDTO(this.repo.save(ticket));
     }
 
     public TicketDTO editTicket(Long id, Ticket ticket) {
@@ -62,6 +63,10 @@ public class PlayerService {
             throw new TicketNotFoundException();
         }
         return ticket.getTimestamp();
+    }
+
+    public TicketDTO getTicketById(Long id) {
+        return this.mapToDTO(this.repo.findById(id).orElseThrow(TicketNotFoundException::new));
     }
 
 }
