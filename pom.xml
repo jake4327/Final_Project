@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.qa</groupId>
-    <artifactId>sfia-3</artifactId>
+    <artifactId>sfia3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sfia-3</name>
+    <name>sfia3</name>
     <description>SFIA-3 Group Project</description>
 
     <properties>
