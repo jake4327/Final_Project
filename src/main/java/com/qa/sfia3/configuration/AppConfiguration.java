@@ -1,4 +1,4 @@
-package com.qa.sfia-3.configuration;
+package com.qa.sfia3.configuration;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
