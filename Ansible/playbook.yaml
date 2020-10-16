@@ -19,12 +19,12 @@
         - docker.io
         - docker-compose
         - mysql-client
-    - name: Install mysql lib
-      pip:
-        name: "{{ item }}"
-      loop:
-        - awscli
-        - PyMySQL
+#    - name: Install mysql lib
+#      pip:
+#        name: "{{ item }}"
+#      loop:
+#        - awscli
+#        - PyMySQL
     - name: Install kubectl 1.17
       shell: |
         curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/linux/amd64/kubectl
@@ -34,13 +34,13 @@
       apt:
         name: jenkins
         state: latest
-    - name: Copy private key to Jenkins folder
-      copy:
-        src: "{{ playbook_dir }}/Jenkins-aws.pem"
-        dest: /var/lib/jenkins/.ssh/id_rsa
-        owner: jenkins
-        group: jenkins
-        mode: 0600
+#    - name: Copy private key to Jenkins folder
+#      copy:
+#        src: "{{ playbook_dir }}/sfia3.pem"
+#        dest: /var/lib/jenkins/.ssh/id_rsa
+#        owner: jenkins
+#        group: jenkins
+#        mode: 0600
     - name: Disable setup wizard
       lineinfile:
         path: /etc/default/jenkins
