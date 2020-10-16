@@ -44,14 +44,9 @@ public class TicketController {
         return ResponseEntity.ok(this.ticketService.getTicketById(id));
     }
 
-    @PutMapping("/editTicket")
-    public ResponseEntity<TicketDTO> editTicket(@PathParam("id") Long id, @RequestBody Ticket ticket) {
+    @PutMapping("/editTicket/{id}")
+    public ResponseEntity<TicketDTO> editTicket(@PathVariable Long id, @RequestBody Ticket ticket) {
         return ResponseEntity.ok(this.ticketService.editTicket(id, ticket));
-    }
-
-    @GetMapping("/getDate/{id}")
-    public ResponseEntity<Date> getDate(@PathVariable Long id, @RequestBody Ticket ticket) {
-        return ResponseEntity.ok(this.ticketService.getDate(id, ticket));
     }
 
     @PutMapping("/updateStatus")
