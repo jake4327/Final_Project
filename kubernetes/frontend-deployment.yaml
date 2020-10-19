@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert -f [file path]
+    kompose.version: 1.21.0 (992df58d8)
+  creationTimestamp: null
+  labels:
+    service: frontend
+  name: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      service: frontend
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        service: frontend
+    spec:
+      containers:
+      - env:
+        - name: BACKEND_URL
+          value: $BACKEND_URL
+        imagePullPolicy: Always
+        name: frontend
+        resources: {}
+      restartPolicy: Always
+      serviceAccountName: ""
+      volumes: null
+status: {}
