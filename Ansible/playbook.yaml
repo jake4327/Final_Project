@@ -1,0 +1,81 @@
+- hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: Prepare Jenkins repo
+      shell: |
+        wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+        sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > \
+            /etc/apt/sources.list.d/jenkins.list'
+    - name: Install packages
+      apt:
+        name: "{{ item }}"
+        state: latest
+        update_cache: yes
+      loop:
+        - openjdk-8-jre-headless
+        - jq
+        - python3-pip
+        - docker.io
+        - docker-compose
+        - mysql-client
+#    - name: Install mysql lib
+#      pip:
+#        name: "{{ item }}"
+#      loop:
+#        - awscli
+#        - PyMySQL
+    - name: Install kubectl 1.17
+      shell: |
+        curl -o kubectl https://amazon-eks.s3.us-west-2.amazonaws.com/1.17.9/2020-08-04/bin/linux/amd64/kubectl
+        chmod +x kubectl
+        mv kubectl /usr/local/bin/
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: latest
+#    - name: Copy private key to Jenkins folder
+#      copy:
+#        src: "{{ playbook_dir }}/sfia3.pem"
+#        dest: /var/lib/jenkins/.ssh/id_rsa
+#        owner: jenkins
+#        group: jenkins
+#        mode: 0600
+    - name: Disable setup wizard
+      lineinfile:
+        path: /etc/default/jenkins
+        insertafter: EOF
+        state: present
+        line: 'JENKINS_ARGS="$JENKINS_ARGS -Djenkins.install.runSetupWizard=false"'
+    - name: Create folder for groovy scripts
+      file:
+        name: /var/lib/jenkins/init.groovy.d
+        state: directory
+        mode: 0755
+    - name: Create admin user for Jenkins service
+      copy:
+        dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy
+        content: |
+          #!groovy
+          import jenkins.model.*
+          import hudson.security.*
+          import jenkins.install.InstallState
+          def instance = Jenkins.getInstance()
+          println "--> creating local user 'jenkins'"
+          // Create user with custom pass
+          def user = instance.getSecurityRealm().createAccount('jenkins', 'password')
+          user.save()
+          def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
+          strategy.setAllowAnonymousRead(false)
+          instance.setAuthorizationStrategy(strategy)
+          if (!instance.installState.isSetupComplete()) {
+            println '--> Neutering SetupWizard'
+            InstallState.INITIAL_SETUP_COMPLETED.initializeState()
+          }
+          instance.save()
+    - name: Install Jenkins plugins
+      script: "{{ playbook_dir }}/install_plugins.sh"
+    - name: Restart Jenkins service
+      service:
+        name: jenkins
+        state: restarted
