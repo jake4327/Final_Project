@@ -11,6 +11,7 @@ pipeline {
         stage('Clone repo') {
             steps {
                 sh '''
+                rm -rf Final_Project
                 git clone https://github.com/jake4327/Final_Project.git
                 '''
             }
