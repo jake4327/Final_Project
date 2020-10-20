@@ -25,8 +25,7 @@ pipeline {
 //         }
         stage('Deploy using docker') {
             steps {
-
-               docker run -d -p 8080:8080 --name sfia3springboot alexcarley98/sfia3springboot
+                sh "docker run -d -p 8080:8080 --name sfia3springboot alexcarley98/sfia3springboot"
             }
         }
     }
