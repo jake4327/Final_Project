@@ -23,6 +23,7 @@ pipeline {
                 sh '''
                 curl https://get.docker.com | sudo bash
                 sudo usermod -aG docker $(whoami)
+                sudo chmod 666 /var/run/docker.sock
                 sudo apt update
                 '''
             }
