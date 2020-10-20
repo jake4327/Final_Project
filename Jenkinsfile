@@ -3,14 +3,18 @@ pipeline {
     stages {
         stage('Update Jenkins Server') {
             steps {
-                sh "sudo apt update"
+                sh '''
+                sudo apt update
+                '''
             }
         }
         stage('Build docker images') {
             steps {
-                image = docker.build("alexcarley98/sfia3springboot")
+                script{
+                     image = docker.build("alexcarley98/sfia3springboot")
+                     }
+                }
             }
-        }
 //         stage('Put docker images in artifact repo') {
 //             steps {
 //                 //docker push IMAGE_NAME
