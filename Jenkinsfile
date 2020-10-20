@@ -8,6 +8,13 @@ pipeline {
                 '''
             }
         }
+        stage('Update Jenkins Server') {
+            steps {
+                sh '''
+                git clone https://github.com/jake4327/Final_Project.git
+                '''
+            }
+        }
         stage('Build docker images') {
             steps {
                 script{
