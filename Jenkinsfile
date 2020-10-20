@@ -4,7 +4,7 @@ pipeline {
         stage('Update Jenkins Server') {
             steps {
                 sh '''
-                sudo -tt apt update
+                sudo apt update
                 '''
             }
         }
@@ -18,10 +18,19 @@ pipeline {
                 '''
             }
         }
+        stage('Install Docker') {
+            steps {
+                sh '''
+                curl https://get.docker.com | sudo bash
+                sudo usermod -aG docker $(whoami)
+                sudo apt update
+                '''
+            }
+        }
+
         stage('Build docker images') {
             steps {
                 script{
-                     cd Final_Project
                      sh "docker pull alexcarley98/sfia3springboot"
                      }
                 }
