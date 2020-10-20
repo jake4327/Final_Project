@@ -8,7 +8,7 @@ pipeline {
                 '''
             }
         }
-        stage('Update Jenkins Server') {
+        stage('Clone repo') {
             steps {
                 sh '''
                 git clone https://github.com/jake4327/Final_Project.git
