@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script{
                      cd Final_Project
-                     image = docker.build("alexcarley98/sfia3springboot")
+                     sh "docker pull alexcarley98/sfia3springboot"
                      }
                 }
             }
