@@ -4,7 +4,7 @@ pipeline {
         stage('Update Jenkins Server') {
             steps {
                 sh '''
-                sudo apt update
+                sudo -tt apt update
                 '''
             }
         }
