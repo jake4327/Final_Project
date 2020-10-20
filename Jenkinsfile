@@ -8,26 +8,25 @@ pipeline {
         }
         stage('Build docker images') {
             steps {
-                //docker-compose --build
+                docker pull alexcarley98/sfia3springboot
             }
         }
-        stage('Put docker images in artifact repo') {
+//         stage('Put docker images in artifact repo') {
+//             steps {
+//                 //docker push IMAGE_NAME
+//             }
+//         }
+//         stage('Run tests') {
+//             steps {
+//                 //ssh into TESTVM << EOF
+//                 //          ????
+//                 //EOF
+//             }
+//         }
+        stage('Deploy using docker') {
             steps {
-                //docker push IMAGE_NAME
-            }
-        }
-        stage('Pull images && Run tests') {
-            steps {
-                //ssh into TESTVM << EOF
-                //          ????
-                //EOF
-            }
-        }
-        stage('Deploy to EKS') {
-            steps {
-                //ssh into TESTVM << EOF
-                //          ????
-                //EOF
+
+               docker run -d -p 8080:8080 --name sfia3springboot alexcarley98/sfia3springboot
             }
         }
     }

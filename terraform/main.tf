@@ -11,16 +11,16 @@ resource "aws_instance" "jenkins" {
   vpc_security_group_ids = ["sg-09584f38b14387fe5"]
   tags                   = { Name = "jenkins" }
 }
-resource "aws_instance" "test" {
-  ami                    = var.ami-id
-  instance_type          = var.instance-type
-  key_name               = var.pem-key
-  vpc_security_group_ids = ["sg-09584f38b14387fe5"]
-  tags                   = { Name = "test" }
-
-}
-resource "aws_key_pair" "defualt" {
-  key_name   = "sfia3"
+//resource "aws_instance" "test" {
+//  ami                    = var.ami-id
+//  instance_type          = var.instance-type
+//  key_name               = var.pem-key
+//  vpc_security_group_ids = ["sg-09584f38b14387fe5"]
+//  tags                   = { Name = "test" }
+//
+//}
+resource "aws_key_pair" "default" {
+  key_name   = "final_project"
   public_key = file("~/.ssh/id_rsa.pub")
 }
 //resource "aws_db_instance" "default" {
