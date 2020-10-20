@@ -8,7 +8,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -54,7 +53,7 @@ public class TicketService {
         Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
         update.setTitle(ticket.getTitle());
         update.setDescription(ticket.getDescription());
-        update.setTrainee(ticket.getTrainee());
+        update.setTopic(ticket.getTopic());
         return this.mapToDTO(this.repo.save(ticket));
     }
 

@@ -17,21 +17,24 @@ public class Ticket {
     private String description;
 
     @Column()
-    private java.time.LocalDateTime localDateTime = LocalDateTime.now();
+    private String topic;
 
-    @Column
-    private String trainee;
+    @Column()
+    private java.time.LocalDateTime localDateTime = LocalDateTime.now();
 
     @Column()
     private Boolean status = false;
 
+    @ManyToOne(targetEntity = Trainee.class)
+    private Trainee trainee;
+
     public Ticket() {
     }
 
-    public Ticket(String title, String description, String trainee) {
+    public Ticket(String title, String description, String topic) {
         this.title = title;
         this.description = description;
-        this.trainee = trainee;
+        this.topic = topic;
     }
 
     public Long getTicketId() {
@@ -56,13 +59,9 @@ public class Ticket {
         this.description = description;
     }
 
-    public String getTrainee() {
-        return trainee;
-    }
+    public String getTopic() { return topic; }
 
-    public void setTrainee(String trainee) {
-        this.trainee = trainee;
-    }
+    public void setTopic(String topic) { this.topic = topic; }
 
     public Boolean getStatus() {
         return status;
@@ -75,4 +74,8 @@ public class Ticket {
     public LocalDateTime getLocalDateTime() { return localDateTime; }
 
     public void setLocalDateTime(LocalDateTime localDateTime) { this.localDateTime = localDateTime; }
+
+    public Trainee getTrainee() { return trainee; }
+
+    public void setTrainee(Trainee trainee) { this.trainee = trainee; }
 }

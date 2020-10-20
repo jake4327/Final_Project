@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -49,8 +47,8 @@ public class TicketController {
         return ResponseEntity.ok(this.ticketService.editTicket(id, ticket));
     }
 
-    @PutMapping("/updateStatus")
-    public ResponseEntity<TicketDTO> updateStatus(@PathParam("id") Long id, @RequestBody Ticket ticket) {
+    @PutMapping("/updateStatus/{id}")
+    public ResponseEntity<TicketDTO> updateStatus(@PathVariable Long id, @RequestBody Ticket ticket) {
         return ResponseEntity.ok(this.ticketService.updateStatus(id, ticket));
     }
 
