@@ -13,6 +13,8 @@ pipeline {
                 sh '''
                 rm -rf Final_Project
                 git clone https://github.com/jake4327/Final_Project.git
+                cd Final_Project
+
                 '''
             }
         }
