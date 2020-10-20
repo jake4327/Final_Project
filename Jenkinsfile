@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Update Jenkins Server') {
             steps {
-                sudo apt update
+                sh "sudo apt update"
             }
         }
         stage('Build docker images') {
