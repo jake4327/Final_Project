@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Build docker images') {
             steps {
-                docker pull alexcarley98/sfia3springboot
+                image = docker.build("alexcarley98/sfia3springboot")
             }
         }
 //         stage('Put docker images in artifact repo') {
