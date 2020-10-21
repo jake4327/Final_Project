@@ -54,7 +54,7 @@ public class TicketService {
         update.setTitle(ticket.getTitle());
         update.setDescription(ticket.getDescription());
         update.setTopic(ticket.getTopic());
-        return this.mapToDTO(this.repo.save(ticket));
+        return this.mapToDTO(this.repo.save(update));
     }
 
     public TicketDTO getTicketById(Long id) {

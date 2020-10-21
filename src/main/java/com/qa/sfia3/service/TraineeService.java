@@ -35,7 +35,7 @@ public class TraineeService {
         Trainee update = this.repo.findById(id).orElseThrow(TraineeNotFoundException::new);
         update.setForename(trainee.getForename());
         update.setSurname(trainee.getSurname());
-        return this.mapToDTO(this.repo.save(trainee));
+        return this.mapToDTO(this.repo.save(update));
     }
 
     public List<TraineeDTO> getAllTrainees() {
