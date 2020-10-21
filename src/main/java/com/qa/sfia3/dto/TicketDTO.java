@@ -3,6 +3,7 @@ package com.qa.sfia3.dto;
 import java.time.LocalDateTime;
 
 public class TicketDTO {
+
     private Long ticketId;
     private String title;
     private String description;

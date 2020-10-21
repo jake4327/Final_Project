@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TraineeDTO {
+
     private Long traineeId;
     private String forename;
     private String surname;
