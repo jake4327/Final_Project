@@ -32,7 +32,7 @@ pipeline {
         stage('Build docker images') {
             steps {
                 script{
-                     sh "docker pull alexcarley98/sfia3springboot"
+                     sh "docker pull apanj/sfia3"
                      }
                 }
             }
@@ -50,7 +50,7 @@ pipeline {
 //         }
         stage('Deploy using docker') {
             steps {
-                sh "docker run -d -p 5001:5001 --name sfia3springboot alexcarley98/sfia3springboot"
+                sh "docker run -d -p 5001:5001 --name sfia3springboot apanj/sfia3"
             }
         }
     }
