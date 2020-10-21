@@ -20,6 +20,9 @@ public class Trainee {
     @OneToMany(mappedBy = "trainee", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Ticket> tickets = new ArrayList<>();
 
+    @ManyToOne(targetEntity = Cohort.class)
+    private Cohort cohort;
+
     public Trainee() {
     }
 
@@ -43,4 +46,8 @@ public class Trainee {
     public List<Ticket> getTickets() { return tickets; }
 
     public void setTickets(List<Ticket> tickets) { this.tickets = tickets; }
+
+    public Cohort getCohort() { return cohort; }
+
+    public void setCohort(Cohort cohort) { this.cohort = cohort; }
 }
