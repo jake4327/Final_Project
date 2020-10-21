@@ -50,7 +50,7 @@ pipeline {
 //         }
         stage('Deploy using docker') {
             steps {
-                sh "docker run -d -p 5001:5001 --name sfia3springboot apanj/sfia3"
+                sh "docker run -d -p 5001:5001 --name sfia3-sb apanj/sfia3"
             }
         }
     }
