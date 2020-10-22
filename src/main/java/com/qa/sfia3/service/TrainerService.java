@@ -1,5 +1,7 @@
 package com.qa.sfia3.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qa.sfia3.domain.Cohort;
 import com.qa.sfia3.domain.Trainer;
 import com.qa.sfia3.dto.TrainerDTO;
 import com.qa.sfia3.exceptions.TrainerNotFoundException;
@@ -8,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,9 +32,7 @@ public class TrainerService {
         return this.mapToDTO(this.repo.findById(id).orElseThrow(TrainerNotFoundException::new));
     }
 
-    public TrainerDTO addTrainer(Trainer trainer) {
-        return this.mapToDTO(this.repo.save(trainer));
-    }
+    public TrainerDTO addTrainer(Trainer trainer) { return this.mapToDTO(this.repo.save(trainer)); }
 
     public TrainerDTO editTrainer(Long id, Trainer trainer) {
         Trainer update = this.repo.findById(id).orElseThrow(TrainerNotFoundException::new);
@@ -41,7 +42,7 @@ public class TrainerService {
     }
 
     public List<TrainerDTO> getAllTrainers() {
-        return this.repo.findAll().stream().map(this::mapToDTO).collect(Collectors.toList());
+        return this.repo.findAll().stream().distinct().map(this::mapToDTO).collect(Collectors.toList());
     }
 
 }

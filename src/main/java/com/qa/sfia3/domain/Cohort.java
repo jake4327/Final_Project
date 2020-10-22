@@ -1,8 +1,6 @@
 package com.qa.sfia3.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Cohort {
@@ -13,9 +11,6 @@ public class Cohort {
 
     @Column
     private String name;
-
-    @ManyToMany(mappedBy = "cohorts")
-    private List<Trainer> trainers = new ArrayList<>();
 
     public Cohort() {
     }
@@ -32,7 +27,4 @@ public class Cohort {
 
     public void setName(String name) { this.name = name; }
 
-    public List<Trainer> getTrainers() { return trainers; }
-
-    public void setTrainers(List<Trainer> trainers) { this.trainers = trainers; }
 }

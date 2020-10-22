@@ -8,7 +8,6 @@ public class CohortDTO {
     private Long cohortId;
     private String name;
     private List<TraineeDTO> trainees = new ArrayList<>();
-    private List<TrainerDTO> trainers = new ArrayList<>();
 
     public CohortDTO() {
     }
@@ -29,7 +28,4 @@ public class CohortDTO {
 
     public void setTrainees(List<TraineeDTO> trainees) { this.trainees = trainees; }
 
-    public List<TrainerDTO> getTrainers() { return trainers; }
-
-    public void setTrainers(List<TrainerDTO> trainers) { this.trainers = trainers; }
 }
