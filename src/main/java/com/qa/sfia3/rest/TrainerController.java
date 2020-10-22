@@ -1,8 +1,6 @@
 package com.qa.sfia3.rest;
 
 import com.qa.sfia3.domain.Trainer;
-import com.qa.sfia3.domain.Trainer;
-import com.qa.sfia3.dto.TrainerDTO;
 import com.qa.sfia3.dto.TrainerDTO;
 import com.qa.sfia3.service.TrainerService;
 import org.springframework.beans.factory.annotation.Autowired;

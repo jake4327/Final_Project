@@ -15,6 +15,14 @@ public class Trainer {
     @Column
     private String surname;
 
+    @OneToOne(cascade = CascadeType.DETACH)
+    @JoinTable(name = "TrainerCohorts",
+            joinColumns =
+                    { @JoinColumn(name = "trainerId", referencedColumnName = "trainerId") },
+            inverseJoinColumns =
+                    { @JoinColumn(name = "cohortId", referencedColumnName = "cohortId") })
+    private Cohort cohort;
+
     public Trainer() {
     }
 

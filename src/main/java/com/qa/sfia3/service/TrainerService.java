@@ -1,10 +1,7 @@
 package com.qa.sfia3.service;
 
-import com.qa.sfia3.domain.Trainee;
 import com.qa.sfia3.domain.Trainer;
-import com.qa.sfia3.dto.TraineeDTO;
 import com.qa.sfia3.dto.TrainerDTO;
-import com.qa.sfia3.exceptions.TraineeNotFoundException;
 import com.qa.sfia3.exceptions.TrainerNotFoundException;
 import com.qa.sfia3.repo.TrainerRepository;
 import org.modelmapper.ModelMapper;
@@ -32,7 +29,9 @@ public class TrainerService {
         return this.mapToDTO(this.repo.findById(id).orElseThrow(TrainerNotFoundException::new));
     }
 
-    public TrainerDTO addTrainer(Trainer trainer) { return this.mapToDTO(this.repo.save(trainer)); }
+    public TrainerDTO addTrainer(Trainer trainer) {
+        return this.mapToDTO(this.repo.save(trainer));
+    }
 
     public TrainerDTO editTrainer(Long id, Trainer trainer) {
         Trainer update = this.repo.findById(id).orElseThrow(TrainerNotFoundException::new);

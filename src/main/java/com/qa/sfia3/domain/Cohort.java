@@ -1,8 +1,6 @@
 package com.qa.sfia3.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Cohort {
@@ -14,8 +12,8 @@ public class Cohort {
     @Column
     private String name;
 
-    @OneToMany(mappedBy = "cohort", fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
-    private List<Trainee> trainees = new ArrayList<>();
+    @OneToOne(mappedBy="cohort")
+    private Trainer trainer;
 
     public Cohort() {
     }
@@ -31,8 +29,4 @@ public class Cohort {
     public String getName() { return name; }
 
     public void setName(String name) { this.name = name; }
-
-    public List<Trainee> getTrainees() { return trainees; }
-
-    public void setTrainees(List<Trainee> trainees) { this.trainees = trainees; }
 }

@@ -1,10 +1,8 @@
 package com.qa.sfia3.service;
 
 import com.qa.sfia3.domain.Cohort;
-import com.qa.sfia3.domain.Trainee;
 import com.qa.sfia3.dto.CohortDTO;
 import com.qa.sfia3.exceptions.CohortNotFoundException;
-import com.qa.sfia3.exceptions.TraineeNotFoundException;
 import com.qa.sfia3.repo.CohortRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
