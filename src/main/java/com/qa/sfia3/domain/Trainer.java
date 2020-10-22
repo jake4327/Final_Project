@@ -1,6 +1,8 @@
 package com.qa.sfia3.domain;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Trainer {
@@ -15,13 +17,12 @@ public class Trainer {
     @Column
     private String surname;
 
-    @OneToOne(cascade = CascadeType.DETACH)
-    @JoinTable(name = "TrainerCohorts",
-            joinColumns =
-                    { @JoinColumn(name = "trainerId", referencedColumnName = "trainerId") },
-            inverseJoinColumns =
-                    { @JoinColumn(name = "cohortId", referencedColumnName = "cohortId") })
-    private Cohort cohort;
+    @ManyToMany
+    @JoinTable(
+            name="trainerCohort",
+            joinColumns = @JoinColumn(name = "trainerId"),
+            inverseJoinColumns = @JoinColumn(name = "cohortId"))
+    private List<Cohort> cohorts = new ArrayList<>();
 
     public Trainer() {
     }
@@ -42,4 +43,8 @@ public class Trainer {
     public String getSurname() { return surname; }
 
     public void setSurname(String surname) { this.surname = surname; }
+
+    public List<Cohort> getCohorts() { return cohorts; }
+
+    public void setCohorts(List<Cohort> cohorts) { this.cohorts = cohorts; }
 }

@@ -1,10 +1,14 @@
 package com.qa.sfia3.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TrainerDTO {
 
     private Long trainerId;
     private String forename;
     private String surname;
+    private List<CohortDTO> cohorts = new ArrayList<>();
 
     public TrainerDTO() {
     }
@@ -25,4 +29,8 @@ public class TrainerDTO {
     public String getSurname() { return surname; }
 
     public void setSurname(String surname) { this.surname = surname; }
+
+    public List<CohortDTO> getCohorts() { return cohorts; }
+
+    public void setCohorts(List<CohortDTO> cohorts) { this.cohorts = cohorts; }
 }
