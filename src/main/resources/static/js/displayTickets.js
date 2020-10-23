@@ -1,5 +1,3 @@
-import { editTicket } from './editTicket';
-
 const displayTickets = () => {
     const req = new XMLHttpRequest();
     req.onreadystatechange = () => {
@@ -13,7 +11,6 @@ const displayTickets = () => {
                     info.textContent = "Ticket ID: " + el.ticketId + "Title: " + el.title + " Description: " + el.description + " Date created: " + el.localDateTime + " Created By: " + el.trainee + "Solved Status: " + el.status;
                     let editButton = document.createElement("BUTTON");
                     editButton.innerHTML = "Edit";
-                    editButton.onclick = editTicket();
                     let deleteButton = document.createElement("BUTTON");
                     deleteButton.innerHTML = "Delete";
                     elem.appendChild(info);
