@@ -20,7 +20,8 @@ public class Trainee {
     @OneToMany(mappedBy = "trainee", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Ticket> tickets = new ArrayList<>();
 
-    @ManyToOne(targetEntity = Cohort.class)
+    @ManyToOne()
+    @JoinColumn(name="cohortId", nullable = false)
     private Cohort cohort;
 
     public Trainee() {

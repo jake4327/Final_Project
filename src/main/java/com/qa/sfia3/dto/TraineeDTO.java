@@ -1,5 +1,7 @@
 package com.qa.sfia3.dto;
 
+import com.qa.sfia3.domain.Cohort;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class TraineeDTO {
     private String forename;
     private String surname;
     private List<TicketDTO> tickets = new ArrayList<>();
+    private Cohort cohort;
 
     public TraineeDTO() {
     }

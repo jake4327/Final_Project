@@ -3,6 +3,7 @@ package com.qa.sfia3.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.sfia3.domain.Cohort;
 import com.qa.sfia3.domain.Trainer;
+import com.qa.sfia3.dto.CohortDTO;
 import com.qa.sfia3.dto.TrainerDTO;
 import com.qa.sfia3.exceptions.TrainerNotFoundException;
 import com.qa.sfia3.repo.TrainerRepository;
@@ -38,6 +39,7 @@ public class TrainerService {
         Trainer update = this.repo.findById(id).orElseThrow(TrainerNotFoundException::new);
         update.setForename(trainer.getForename());
         update.setSurname(trainer.getSurname());
+        update.setCohorts(trainer.getCohorts());
         return this.mapToDTO(this.repo.save(update));
     }
 
