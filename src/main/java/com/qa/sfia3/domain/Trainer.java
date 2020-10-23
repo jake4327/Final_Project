@@ -47,4 +47,11 @@ public class Trainer {
     public List<Cohort> getCohorts() { return cohorts; }
 
     public void setCohorts(List<Cohort> cohorts) { this.cohorts = cohorts; }
+
+    public void addCohort(List<Cohort> newCohorts) {
+        for(int i = 0; i < newCohorts.size(); i++) {
+            cohorts.add(newCohorts.get(i));
+        }
+    }
+
 }
