@@ -3,14 +3,20 @@ import { Route, BrowserRouter as Router, Switch} from 'react-router-dom';
 import './App.css';
 import Home from './components/Home';
 import CreateTicket from './components/CreateTicket';
+import LandingPage from './components/LandingPage';
+import TrainerReg from './components/TrainerReg';
+import TraineeReg from './components/TraineeReg';
 
 function App() {
   return (
     <div>
       <Router>
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" component={LandingPage} exact/>
+          <Route path="/home" component={Home} exact />
           <Route path="/create-ticket" component={CreateTicket} />
+          <Route path="/trainee" component={TraineeReg} />
+          <Route path="/trainer" component={TrainerReg} />
         </Switch>
       </Router>
     </div>

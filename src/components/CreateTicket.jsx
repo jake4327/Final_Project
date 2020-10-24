@@ -1,10 +1,10 @@
 import React from 'react';
-import Nav from './Nav';
+import Navbar from './Navbar';
 
 const CreateTicket = () => {
     return (
         <>
-            <Nav/>
+            <Navbar/>
             Create a ticket here
         </>
     );
