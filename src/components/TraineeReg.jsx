@@ -4,6 +4,10 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const TraineeReg = () => {
+    const handleClick = (click) => {
+        click.preventDefault();
+        window.location.href="/home";
+    }
     return (
         <Jumbotron>
             <h1>Who are you?</h1>
@@ -24,7 +28,7 @@ const TraineeReg = () => {
                         <option>placeholder3</option>
                     </Form.Control>
                 </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={handleClick}>
                     Submit
                 </Button>
             </Form>
