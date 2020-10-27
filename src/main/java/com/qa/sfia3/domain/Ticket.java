@@ -78,4 +78,7 @@ public class Ticket {
     public Trainee getTrainee() { return trainee; }
 
     public void setTrainee(Trainee trainee) { this.trainee = trainee; }
+
+    public void setId(long l) {
+    }
 }
