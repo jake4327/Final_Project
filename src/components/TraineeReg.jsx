@@ -8,6 +8,7 @@ const TraineeReg = () => {
         click.preventDefault();
         window.location.href="/home";
     }
+    
     return (
         <Jumbotron>
             <h1>Who are you?</h1>

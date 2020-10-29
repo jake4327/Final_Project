@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Navbar from './Navbar';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import axios from 'axios';
+import TicketTemplate from './TicketTemplate';
 
 const Home = () => {
     const [error, setError] = useState(null);
@@ -33,11 +34,9 @@ const Home = () => {
                 <Navbar/><br/>
                 <h3>Welcome back (username placeholder)!</h3>
                 <h4>All Tickets</h4>
-                <ul>
-                    {items.map( (data) => (
-                        <li key={data.ticketId}> {data.description} </li>
-                    ))}
-                </ul>
+                {items.map( (data) => (
+                    <TicketTemplate data={data} key={data.ticketId}/>
+                ))}
             </Jumbotron>
         )
     }
