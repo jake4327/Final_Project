@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2ef2d19-aa5d-471d-8ce0-51be0c4b9eb3" name="Default Changelist" comment="Plan for Jenkinsfile made." />
+    <list default="true" id="a2ef2d19-aa5d-471d-8ce0-51be0c4b9eb3" name="Default Changelist" comment="Architecture provisioned provisioned">
+      <change afterPath="$PROJECT_DIR$/terraform/variable.tf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/terraform/main.tf" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -123,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602853417632</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Architecture provisioned provisioned">
+      <created>1603978449505</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603978449505</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,17 +156,20 @@
     <MESSAGE value="Work on README  to get risk assessment and MoSCoW report complete" />
     <MESSAGE value="Terraform file that is being implimented to have good AWS structure." />
     <MESSAGE value="Plan for Jenkinsfile made." />
-    <option name="LAST_COMMIT_MESSAGE" value="Plan for Jenkinsfile made." />
+    <MESSAGE value="Aritecture provisioned provisioned" />
+    <MESSAGE value="Architecture provisioned provisioned" />
+    <option name="LAST_COMMIT_MESSAGE" value="Architecture provisioned provisioned" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1909" y="286" width="824" height="515" key="IDE.errors.dialog" timestamp="1602676225421">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1909" y="286" width="824" height="515" key="IDE.errors.dialog/70.27.1296.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602676225421" />
-    <state x="1921" y="272" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1602853422089">
+    <state x="1921" y="272" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1603978461380">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="1921" y="272" width="800" height="543" key="Vcs.Push.Dialog.v2/70.27.1296.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602853422089" />
+    <state x="1921" y="272" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603978461380" />
     <state x="2129" y="232" width="384" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1602782833430">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
