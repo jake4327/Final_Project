@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 
 const TicketTemplate = (props) => {
-    var history = useHistory();
+    const history = useHistory();
 
     const handleStatus = (props) => {
         let status = props.status;
@@ -15,7 +15,7 @@ const TicketTemplate = (props) => {
         }
     }
 
-    const handleClick = (click) => {
+    const handleEditClick = (click) => {
         let data = props.data;
         click.preventDefault();
         history.push({
@@ -41,7 +41,7 @@ const TicketTemplate = (props) => {
                 </Card.Text>
             </Card.Body>
             <Card.Body>
-                <Button variant="primary" onClick={handleClick}>Edit</Button>
+                <Button variant="primary" onClick={handleEditClick}>Edit</Button>
                 <Button variant="primary">Delete</Button>
             </Card.Body>
         </Card>
