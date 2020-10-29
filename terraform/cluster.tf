@@ -28,20 +28,20 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
 }
 
 resource "aws_eks_cluster" "aws_eks" {
-  name     = "eks_cluster_tuto"
+  name     = "eks_cluster_sfia"
   role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
-    subnet_ids = ["subnet-4d0d3324", "subnet-b3a8f9c8"]
+    subnet_ids = [aws_subnet.public[0].id, aws_subnet.public[1].id]
   }
 
   tags = {
-    Name = "EKS_tuto"
+    Name = "EKS_sfia"
   }
 }
 
 resource "aws_iam_role" "eks_nodes" {
-  name = "eks-node-group-tuto"
+  name = "eks-node-group-sfia"
 
   assume_role_policy = <<POLICY
 {
@@ -75,15 +75,17 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
 }
 
 resource "aws_eks_node_group" "node" {
-  cluster_name    = aws_eks_cluster.aws_eks.name
-  node_group_name = "node_tuto"
-  node_role_arn   = aws_iam_role.eks_nodes.arn
-  subnet_ids      = ["subnet-4d0d3324", "subnet-b3a8f9c8"]
+  cluster_name = aws_eks_cluster.aws_eks.name
+  node_group_name = "node_sfia"
+  node_role_arn = aws_iam_role.eks_nodes.arn
+  subnet_ids = [
+    aws_subnet.public[0].id,
+    aws_subnet.public[1].id]
 
   scaling_config {
     desired_size = 1
-    max_size     = 1
-    min_size     = 1
+    max_size = 1
+    min_size = 1
   }
 
   # Ensure that IAM Role permissions are created before and deleted after EKS Node Group handling.
