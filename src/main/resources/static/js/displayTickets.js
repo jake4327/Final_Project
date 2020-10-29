@@ -8,7 +8,7 @@ const displayTickets = () => {
                 content.forEach(el => {
                     let elem = document.createElement('div');
                     let info = document.createElement('p');
-                    info.textContent = "Ticket ID: " + el.ticketId + "Title: " + el.title + " Description: " + el.description + " Date created: " + el.localDateTime + " Created By: " + el.trainee + "Solved Status: " + el.status;
+                    info.textContent = "Ticket ID: " + el.ticketId + "Title: " + el.title + " Description: " + el.description + " Topic: " + el.topic + " Date created: " + el.localDateTime + "Solved Status: " + el.status;
                     let editButton = document.createElement("BUTTON");
                     editButton.innerHTML = "Edit";
                     let deleteButton = document.createElement("BUTTON");

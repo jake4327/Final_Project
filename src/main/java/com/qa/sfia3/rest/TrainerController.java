@@ -20,26 +20,31 @@ public class TrainerController {
     @Autowired
     public TrainerController(TrainerService trainerService) { this.trainerService = trainerService; }
 
+    @CrossOrigin
     @GetMapping("/getAllTrainers")
     public ResponseEntity<List<TrainerDTO>> getAllTrainers() {
         return ResponseEntity.ok(this.trainerService.getAllTrainers());
     }
 
+    @CrossOrigin
     @PostMapping("/addTrainer")
     public ResponseEntity<TrainerDTO> addTrainer(@RequestBody Trainer trainer) {
         return new ResponseEntity<TrainerDTO>(this.trainerService.addTrainer(trainer), HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @PutMapping("/addTrainerCohort/{id}")
     public ResponseEntity<TrainerDTO> addTrainerCohort(@PathVariable Long id, @RequestBody Trainer trainer) {
         return ResponseEntity.ok(this.trainerService.addTrainerCohort(id, trainer));
     }
 
+    @CrossOrigin
     @GetMapping("/getTrainerById/{id}")
     public ResponseEntity<TrainerDTO> getTrainerById(@PathVariable Long id) {
         return ResponseEntity.ok(this.trainerService.getTrainerById(id));
     }
 
+    @CrossOrigin
     @PutMapping("/editTrainer/{id}")
     public ResponseEntity<TrainerDTO> editTrainer(@PathVariable Long id, @RequestBody Trainer trainer) {
         return ResponseEntity.ok(this.trainerService.editTrainer(id, trainer));

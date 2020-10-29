@@ -18,21 +18,25 @@ public class CohortController {
     @Autowired
     public CohortController(CohortService cohortService) { this.cohortService = cohortService; }
 
+    @CrossOrigin
     @GetMapping("/getAllCohorts")
     public ResponseEntity<List<CohortDTO>> getAllCohorts() {
         return ResponseEntity.ok(this.cohortService.getAllCohorts());
     }
 
+    @CrossOrigin
     @PostMapping("/addCohort")
     public ResponseEntity<CohortDTO> addCohort(@RequestBody Cohort cohort) {
         return new ResponseEntity<CohortDTO>(this.cohortService.addCohort(cohort), HttpStatus.CREATED);
     }
 
+    @CrossOrigin
     @GetMapping("/getCohortById/{id}")
     public ResponseEntity<CohortDTO> getCohortById(@PathVariable Long id) {
         return ResponseEntity.ok(this.cohortService.getCohortById(id));
     }
 
+    @CrossOrigin
     @PutMapping("/editCohort/{id}")
     public ResponseEntity<CohortDTO> editCohort(@PathVariable Long id, @RequestBody Cohort cohort) {
         return ResponseEntity.ok(this.cohortService.editCohort(id, cohort));
