@@ -1,0 +1,10 @@
+---
+# vars file for jenkins
+
+java:
+  VERSION: "openjdk-8-jre"
+
+jenkins:
+  repo_URL: "https://pkg.jenkins.io/debian-stable"
+  gpg_key: "url=https://pkg.jenkins.io/debian-stable/jenkins.io.key state=present"
+  JAVA_OPTIONS: "-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"
