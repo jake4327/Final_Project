@@ -79,6 +79,4 @@ public class Ticket {
 
     public void setTrainee(Trainee trainee) { this.trainee = trainee; }
 
-    public void setId(long l) {
-    }
 }
