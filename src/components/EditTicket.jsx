@@ -15,8 +15,7 @@ const EditTicket = (props) => {
 
     const handleClick = (click) => {
         click.preventDefault();
-        axios.put("http://localhost:8080/editTicket", {
-            params: {id: data.ticketId},
+        axios.put(`http://localhost:8080/editTicket/${data.ticketId}`, {
             title: title,
             description: description,
             topic: topic
