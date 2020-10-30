@@ -68,7 +68,9 @@ const TicketTemplate = (props) => {
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>Are you sure you want to delete this ticket?</Modal.Header>
                 <Modal.Body>
-                    <Button variant="primary" onClick={deleteTicket}>Delete</Button>
+                    <Button variant="primary" onClick={deleteTicket}>
+                        Delete
+                    </Button>
                 </Modal.Body>
             </Modal>
         </>
