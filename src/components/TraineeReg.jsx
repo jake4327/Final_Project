@@ -3,6 +3,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 const TraineeReg = () => {
     const [items, setItems] = useState([]);
@@ -10,13 +11,17 @@ const TraineeReg = () => {
     const [forename, setForename] = useState([]);
     const [surname, setSurname] = useState([]);
     const [cohort, setCohort] = useState([]);
+    const history = useHistory();
  
     const handleClick = (click) => {
+        console.log(cohort);
         click.preventDefault();
-        axios.put("http://localhost:8080/addTrainee", {
+        axios.post("http://localhost:8080/addTrainee", {
             forename: forename,
             surname: surname,
-            cohortId: cohort
+            cohort: {
+                cohortId: cohort
+            }
         })
         .then(function (response) {
             console.log(response);
@@ -24,7 +29,7 @@ const TraineeReg = () => {
         .catch(function (error) {
             console.log(error);
         }); 
-        //window.location.href="/home";
+        history.push("/home");
     }
 
     const handleForename = event => {
@@ -68,9 +73,10 @@ const TraineeReg = () => {
                     </Form.Group>
                     <Form.Group controlId="formCohort">
                         <Form.Label>Cohort</Form.Label>
-                        <Form.Control as="select" onSelect={handleCohort}>
+                        <Form.Control as="select" onChange={handleCohort.bind(this)}>
+                            <option key="default">Select Cohort</option>
                             {items.map( (data) => (
-                                <option key={data.cohortId}>{data.name}</option>
+                                <option key={data.cohortId} value={data.cohortId}>{data.name}</option>
                             ))}
                         </Form.Control>
                     </Form.Group>

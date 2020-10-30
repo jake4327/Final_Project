@@ -32,7 +32,7 @@ const Home = () => {
         return (
             <Jumbotron>
                 <Navbar/><br/>
-                <h3>Welcome back (username placeholder)!</h3>
+                <h3>Welcome back!</h3>
                 <h4>All Tickets</h4>
                 {items.map( (data) => (
                     <TicketTemplate data={data} key={data.ticketId}/>
