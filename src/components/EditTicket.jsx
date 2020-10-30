@@ -27,6 +27,7 @@ const EditTicket = (props) => {
             console.log(error);
         });
         history.push("/home");
+        history.go(0);
     }
 
     const handleTitle = event => {
