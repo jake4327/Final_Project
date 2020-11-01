@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,11 +37,13 @@ public class TicketService {
     }
 
     public Boolean deleteTicket(Long id) {
-        if(!this.repo.existsById(id)) {
-            throw new TicketNotFoundException();
-        }
         this.repo.deleteById(id);
-        return this.repo.existsById(id);
+        return !this.repo.existsById(id);
+//        if(!this.repo.existsById(id)) {
+//            throw new TicketNotFoundException();
+//        }
+//        this.repo.deleteById(id);
+//        return this.repo.existsById(id);
     }
 
     public TicketDTO updateStatus(Long id, Ticket ticket) {
@@ -50,11 +53,14 @@ public class TicketService {
     }
 
     public TicketDTO editTicket(Long id, Ticket ticket) {
-        Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
-        update.setTitle(ticket.getTitle());
-        update.setDescription(ticket.getDescription());
-        update.setTopic(ticket.getTopic());
-        return this.mapToDTO(this.repo.save(update));
+        Optional<Ticket> optTicket = this.repo.findById(id);
+        Ticket oldTicket = optTicket.orElseThrow(() -> new TicketNotFoundException());
+//      Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
+        oldTicket.setTitle(ticket.getTitle());
+        oldTicket.setDescription(ticket.getDescription());
+        oldTicket.setTopic(ticket.getTopic());
+        TicketDTO saved = this.mapToDTO(this.repo.save(oldTicket));
+        return saved;
     }
 
     public TicketDTO getTicketById(Long id) {
