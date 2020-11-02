@@ -47,9 +47,29 @@ const TicketTemplate = (props) => {
         history.go(0);
     }
 
+    const formatTime = (time) => {
+        let timestamp = time;
+        timestamp = setCharAt(timestamp, 4, '/');
+        timestamp = setCharAt(timestamp, 7, '/');
+        timestamp = setCharAt(timestamp, 10, ' ');
+        timestamp = setCharAt(timestamp, 19, ' ');
+        timestamp = setCharAt(timestamp, 20, ' ');
+        timestamp = setCharAt(timestamp, 21, ' ');
+        timestamp = setCharAt(timestamp, 22, ' ');
+        timestamp = setCharAt(timestamp, 23, ' ');
+        timestamp = setCharAt(timestamp, 24, ' ');
+        timestamp = setCharAt(timestamp, 25, ' ');
+        return timestamp;
+    }
+
+    function setCharAt(str,index,chr) {
+        if(index > str.length-1) return str;
+        return str.substring(0,index) + chr + str.substring(index+1);
+    }
+
     return (
         <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '25rem' }}>
                 <Card.Body>
                     <Card.Title>Title: {props.data.title}</Card.Title>
                     <Card.Text>
@@ -60,6 +80,9 @@ const TicketTemplate = (props) => {
                     </Card.Text>
                     <Card.Text>
                         Solved: {handleStatus(props.data.status)}
+                    </Card.Text>
+                    <Card.Text>
+                        Date and Time: {formatTime(props.data.localDateTime)}
                     </Card.Text>
                 </Card.Body>
                 <Card.Body>

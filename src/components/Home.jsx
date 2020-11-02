@@ -12,6 +12,8 @@ const Home = (props) => {
     const [items, setItems] = useState([]);
     const [key, setKey] = useState('all-tickets');
     const [cohorts, setCohorts] = useState([]);
+    let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
+    let newTickets = oldTickets.slice().reverse();
     //let userInfo = props.location.state.userInfo;
     //console.log(cohorts);
 
@@ -62,6 +64,16 @@ const Home = (props) => {
                             ))}
                         </Tab>
                     ))}
+                    <Tab eventKey="oldest" title="Oldest Tickets">
+                        {oldTickets.map( (data) => (
+                            <TicketTemplate data={data} key={data.ticketId}/>
+                        ))}
+                    </Tab>
+                    <Tab eventKey="newest" title="Newest Tickets">
+                        {newTickets.map( (data) => (
+                            <TicketTemplate data={data} key={data.ticketId}/>
+                        ))}
+                    </Tab>
                 </Tabs>
             </Jumbotron>
         )
