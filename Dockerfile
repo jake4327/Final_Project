@@ -1,5 +1,5 @@
 FROM maven:latest AS build-stage
-COPY ./build
+COPY . ./build
 WORKDIR /build
 RUN mvn clean package
 
