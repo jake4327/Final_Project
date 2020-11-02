@@ -4,11 +4,13 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 
 const CreateTicket = () => {
     const [title, setTitle] = useState([]);
     const [description, setDescription] = useState([]);
     const [topic, setTopic] = useState([]);
+    const history = useHistory();
 
     const handleClick = (click) => {
         click.preventDefault();
@@ -23,7 +25,7 @@ const CreateTicket = () => {
         .catch(function (error) {
             console.log(error);
         });
-        window.location.href="/home";
+        history.push("/home");
     }
 
     const handleTitle = event => {

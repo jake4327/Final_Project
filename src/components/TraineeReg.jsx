@@ -24,12 +24,17 @@ const TraineeReg = () => {
             }
         })
         .then(function (response) {
-            console.log(response);
+            if(response.status === 201) {
+                let data = response.data;
+                console.log(data);
+                history.push({
+                    pathname: "/home", state:{userInfo: data}
+                });
+            }
         })
         .catch(function (error) {
             console.log(error);
         }); 
-        history.push("/home");
     }
 
     const handleForename = event => {

@@ -23,11 +23,13 @@ const TicketTemplate = (props) => {
 
     const handleEditClick = (click) => {
         let data = props.data;
+        let user = props.user;
         click.preventDefault();
         history.push({
             pathname: "/edit-ticket",
             state:{
-                data:data
+                data:data,
+                userInfo:user
             }
         }); 
     }

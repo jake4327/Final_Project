@@ -26,7 +26,7 @@ const EditTicket = (props) => {
         .catch(function (error) {
             console.log(error);
         });
-        history.push("/home");
+        history.push({pathname: "/home"});
         history.go(0);
     }
 
