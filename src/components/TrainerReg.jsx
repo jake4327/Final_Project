@@ -7,8 +7,9 @@ const TrainerReg = () => {
     const [trainers, setTrainers] = useState([]);
     const [error, setError] = useState(null);
 
-    const handleClick = (click) => {
-        click.preventDefault();
+    const handleClick = (trainer) => {
+        console.log(trainer);
+        localStorage.setItem("user",JSON.stringify(trainer));
         window.location.href="/home";
     }
     
@@ -30,12 +31,9 @@ const TrainerReg = () => {
         return (
             <Jumbotron>
                 {trainers.map( trainer => (
-                    <div>
-                        #######
-                    <Button variant="primary" type="submit" onClick={handleClick}>
-                        {trainer.forename} {trainer.surname} Testing
+                    <Button variant="primary" type="submit" onClick={() => handleClick(trainer)} key={trainer.trainerId}>
+                        {trainer.forename} {trainer.surname}
                     </Button>
-                    </div>
                 ))}
             </Jumbotron>
         );

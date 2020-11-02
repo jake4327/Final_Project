@@ -27,8 +27,9 @@ const TraineeReg = () => {
             if(response.status === 201) {
                 let data = response.data;
                 console.log(data);
+                localStorage.setItem("user",JSON.stringify(data));
                 history.push({
-                    pathname: "/home", state:{userInfo: data}
+                    pathname: "/home"
                 });
             }
         })

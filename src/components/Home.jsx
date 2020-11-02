@@ -6,6 +6,7 @@ import TicketTemplate from './TicketTemplate';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 
+
 const Home = (props) => {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
@@ -14,8 +15,7 @@ const Home = (props) => {
     const [cohorts, setCohorts] = useState([]);
     let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
     let newTickets = oldTickets.slice().reverse();
-    //let userInfo = props.location.state.userInfo;
-    //console.log(cohorts);
+    let data = JSON.parse(localStorage.getItem("user"));
 
     useEffect( () => {
         axios.get("http://localhost:8080/viewAllTickets")
@@ -46,7 +46,7 @@ const Home = (props) => {
         return (
             <Jumbotron>
                 <Navbar/><br/>
-                <h3>Welcome back!</h3>
+        <h3>Welcome back {data.forename} {data.surname}</h3>
                 <Tabs id="ticket-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
                     <Tab eventKey="all-tickets" title="All Tickets">
                         <br/>
