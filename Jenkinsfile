@@ -46,13 +46,11 @@ pipeline {
         
         stage('Build  images') {
             steps {
-                script{
                     script{
                             docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
                             image.push("jstoneqa/sfia-3-backend")
                             }
-                        }                        
-                }
+                        }                     
             }
         
 //         stage('Put docker images in artifact repo') {
