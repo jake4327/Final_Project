@@ -17,7 +17,8 @@ const Home = (props) => {
     let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
     let newTickets = oldTickets.slice().reverse();
     let data = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
+    console.log(cohorts);
+    console.log(JSON.stringify(user.tickets));
 
     useEffect( () => {
         axios.get("http://localhost:8080/viewAllTickets")
@@ -67,11 +68,11 @@ const Home = (props) => {
                     </Tab>
                     <Tab eventKey="my-tickets" title="My Tickets">
                         <br/>
-                        {/* {console.log(cohorts)} */}
                         {cohorts.map(cohort => (
                             cohort.trainees.map(trainee => (
                                 trainee.tickets.map(ticket => (
-                                    ticket.traineeId === data.traineeId ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
+                                    // ticket.ticketId === data ? <TicketTemplate data={JSON.stringify(ticket)} key={ticket.ticketId}/> : "test"
+                                    console.log(ticket.traineeId)
                                 ))
                             ))
                         ))}
