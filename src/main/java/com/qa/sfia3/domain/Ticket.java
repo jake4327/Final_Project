@@ -1,7 +1,7 @@
 package com.qa.sfia3.domain;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 public class Ticket {
@@ -16,14 +16,14 @@ public class Ticket {
     @Column
     private String description;
 
-    @Column
-    private Date timestamp;
+    @Column()
+    private java.time.LocalDateTime localDateTime = LocalDateTime.now();
 
     @Column
     private String trainee;
 
-    @Column
-    private Boolean status;
+    @Column()
+    private Boolean status = false;
 
     public Ticket() {
     }
@@ -42,9 +42,7 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    public String getTitle() { return title; }
 
     public void setTitle(String title) {
         this.title = title;
@@ -56,14 +54,6 @@ public class Ticket {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
     }
 
     public String getTrainee() {
@@ -81,4 +71,8 @@ public class Ticket {
     public void setStatus(Boolean status) {
         this.status = status;
     }
+
+    public LocalDateTime getLocalDateTime() { return localDateTime; }
+
+    public void setLocalDateTime(LocalDateTime localDateTime) { this.localDateTime = localDateTime; }
 }

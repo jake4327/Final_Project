@@ -58,13 +58,6 @@ public class TicketService {
         return this.mapToDTO(this.repo.save(ticket));
     }
 
-    public Date getDate(Long id, Ticket ticket) {
-        if(!this.repo.existsById(id)) {
-            throw new TicketNotFoundException();
-        }
-        return ticket.getTimestamp();
-    }
-
     public TicketDTO getTicketById(Long id) {
         return this.mapToDTO(this.repo.findById(id).orElseThrow(TicketNotFoundException::new));
     }
