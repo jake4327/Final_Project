@@ -8,6 +8,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Clone repo') {
             steps {
                 sh '''
@@ -17,6 +18,7 @@ pipeline {
                 '''
             }
         }
+
         stage('Install Docker') {
             steps {
                 sh '''
@@ -31,18 +33,6 @@ pipeline {
                 '''
             }
         }
-
-//stage('Build docker images') {
-//steps {
-//script{
-//sh '''
-//cd Final_Project
-//docker build . -t jstoneqa/sfia-3-backend
-//docker push jstoneqa/sfia-3-backend
-//'''
-//}
-//}
-//}
         
         stage('Build  images') {
             steps {
@@ -52,19 +42,8 @@ pipeline {
                             }
                         }                     
             }
+        }
         
-//         stage('Put docker images in artifact repo') {
-//             steps {
-//                 //docker push IMAGE_NAME
-//             }
-//         }
-//         stage('Run tests') {
-//             steps {
-//                 //ssh into TESTVM << EOF
-//                 //          ????
-//                 //EOF
-//             }
-//         }
         stage('Deploy using docker') {
             steps {
                 sh "docker run -d -p 5001:5001 --name sfia3-sb apanj/sfia3"
