@@ -14,7 +14,6 @@ pipeline {
                 rm -rf Final_Project
                 git clone https://github.com/jake4327/Final_Project.git
                 cd Final_Project
-
                 '''
             }
         }
@@ -33,13 +32,29 @@ pipeline {
             }
         }
 
-        stage('Build docker images') {
+//stage('Build docker images') {
+//steps {
+//script{
+//sh '''
+//cd Final_Project
+//docker build . -t jstoneqa/sfia-3-backend
+//docker push jstoneqa/sfia-3-backend
+//'''
+//}
+//}
+//}
+        
+        stage('Build  images') {
             steps {
                 script{
-                     sh "docker pull apanj/sfia3"
-                     }
+                    script{
+                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
+                            image.push("jstoneqa/sfia-3-backend")
+                            }
+                        }                        
                 }
             }
+        
 //         stage('Put docker images in artifact repo') {
 //             steps {
 //                 //docker push IMAGE_NAME
