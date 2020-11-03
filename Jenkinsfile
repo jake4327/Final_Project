@@ -38,7 +38,11 @@ pipeline {
             steps {
                     script{
                             docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                             sh 'docker push jstoneqa/sfia-3-backend' 
+                                sh '''
+                                cd Final_Project
+                                docker build . -t jstoneqa/sfia-3-backend
+                                docker push jstoneqa/sfia-3-backend
+                                '''
                             }
                         }                     
             }
