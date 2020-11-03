@@ -13,9 +13,11 @@ const Home = (props) => {
     const [items, setItems] = useState([]);
     const [key, setKey] = useState('all-tickets');
     const [cohorts, setCohorts] = useState([]);
+    const [user, setUser] = useState({data:{}});
     let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
     let newTickets = oldTickets.slice().reverse();
     let data = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
 
     useEffect( () => {
         axios.get("http://localhost:8080/viewAllTickets")
@@ -37,7 +39,16 @@ const Home = (props) => {
                 setCohorts(res.data);
             }
         )
+        axios.get(`http://localhost:8080/getTraineeById/${data.traineeId}`)
+        .then(res => res)
+        .then(
+            (res) => {
+                setUser(res.data);
+            }
+        )
     },[]);
+
+        
     if(error) {
         return <div>Oops... something happened... {error.message}</div>
     } else if(!isLoaded) {
@@ -46,12 +57,23 @@ const Home = (props) => {
         return (
             <Jumbotron>
                 <Navbar/><br/>
-        <h3>Welcome back {data.forename} {data.surname}</h3>
+                <h3>Welcome back {data.forename} {data.surname}</h3>
                 <Tabs id="ticket-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
                     <Tab eventKey="all-tickets" title="All Tickets">
                         <br/>
                         {items.map( (data) => (
                             <TicketTemplate data={data} key={data.ticketId}/>
+                        ))}
+                    </Tab>
+                    <Tab eventKey="my-tickets" title="My Tickets">
+                        <br/>
+                        {/* {console.log(cohorts)} */}
+                        {cohorts.map(cohort => (
+                            cohort.trainees.map(trainee => (
+                                trainee.tickets.map(ticket => (
+                                    ticket.traineeId === data.traineeId ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
+                                ))
+                            ))
                         ))}
                     </Tab>
                     {cohorts.map( (cohort) => (

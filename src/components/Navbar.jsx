@@ -1,8 +1,15 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
+import Button from 'react-bootstrap/Button';
 
 const Navigationbar = () => {
+    const handleLogOut = (click) => {
+        click.preventDefault();
+        localStorage.removeItem("user");
+        window.location.href="/";
+    }
+
     return (
             <Navbar bg="primary" variant="dark">
                 <Navbar.Brand>Help Queue</Navbar.Brand>
@@ -10,6 +17,7 @@ const Navigationbar = () => {
                 <Nav.Link href="/home">Home</Nav.Link>
                 <Nav.Link href="/create-ticket">Create Ticket</Nav.Link>
                 </Nav>
+                <Button variant="outline-light" onClick={handleLogOut}>Log Out</Button>
             </Navbar>
     );
 }

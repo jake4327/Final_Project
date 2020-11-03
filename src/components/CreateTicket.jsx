@@ -11,13 +11,17 @@ const CreateTicket = () => {
     const [description, setDescription] = useState([]);
     const [topic, setTopic] = useState([]);
     const history = useHistory();
+    let data = JSON.parse(localStorage.getItem("user"));
 
     const handleClick = (click) => {
         click.preventDefault();
         axios.post("http://localhost:8080/addTicket", {
             title: title,
             description: description,
-            topic: topic
+            topic: topic,
+            trainee: {
+                traineeId: data.traineeId
+            }
         })
         .then(function (response) {
             console.log(response);
@@ -26,6 +30,7 @@ const CreateTicket = () => {
             console.log(error);
         });
         history.push("/home");
+        history.go(0);
     }
 
     const handleTitle = event => {
