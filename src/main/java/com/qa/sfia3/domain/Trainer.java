@@ -3,6 +3,7 @@ package com.qa.sfia3.domain;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Trainer {
@@ -54,4 +55,19 @@ public class Trainer {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trainer trainer = (Trainer) o;
+        return Objects.equals(trainerId, trainer.trainerId) &&
+                Objects.equals(forename, trainer.forename) &&
+                Objects.equals(surname, trainer.surname) &&
+                Objects.equals(cohorts, trainer.cohorts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(trainerId, forename, surname, cohorts);
+    }
 }

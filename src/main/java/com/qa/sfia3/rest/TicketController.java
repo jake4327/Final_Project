@@ -30,11 +30,19 @@ public class TicketController {
         return new ResponseEntity<TicketDTO>(this.ticketService.addTicket(ticket), HttpStatus.CREATED);
     }
 
+//    @DeleteMapping("/deleteTicket/{id}")
+//    public ResponseEntity<?> deleteTicket(@PathVariable Long id) {
+//        return this.ticketService.deleteTicket(id)
+//                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
+//                : ResponseEntity.noContent().build();
+//    }
     @DeleteMapping("/deleteTicket/{id}")
-    public ResponseEntity<?> deleteTicket(@PathVariable Long id) {
-        return this.ticketService.deleteTicket(id)
-                ? ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build()
-                : ResponseEntity.noContent().build();
+    public ResponseEntity<Object> deleteWood(@PathVariable Long id) {
+        if (this.ticketService.deleteTicket(id)) {
+            return new ResponseEntity<>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/getTicketById/{id}")

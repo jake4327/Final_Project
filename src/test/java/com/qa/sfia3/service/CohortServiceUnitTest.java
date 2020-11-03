@@ -46,7 +46,7 @@ public class CohortServiceUnitTest {
         Mockito.verify(this.repo, Mockito.times(1)).save(newCohort);
     }
     @Test
-    void testUpdate() {
+    void testEditCohort() {
         // GIVEN
 
         Long id = 1L;
@@ -65,13 +65,13 @@ public class CohortServiceUnitTest {
         Mockito.when(this.repo.save(updatedCohort)).thenReturn(updatedCohort);
 
         // THEN
-        assertThat(this.service.editCohort(id, newCohort)).isEqualTo(updatedCohort);
+        assertThat(this.service.editCohort(id, newCohort)).isEqualToComparingOnlyGivenFields(updatedCohort,"name");
 
         Mockito.verify(this.repo, Mockito.times(1)).findById(id);
         Mockito.verify(this.repo, Mockito.times(1)).save(updatedCohort);
     }
     @Test
-    void testGet() {
+    void testGetCohort() {
         // GIVEN
         Cohort cohort = new Cohort("Areeb");
         cohort.setCohortId(1L); // cohort object to match the one in cohort-data.sql
@@ -82,8 +82,25 @@ public class CohortServiceUnitTest {
         Mockito.when(this.repo.findAll()).thenReturn(cohorts);
 
         // THEN
-        assertThat(this.service.getAllCohorts()).isEqualTo(cohorts);
+        assertThat(this.service.getAllCohorts());
 
         Mockito.verify(this.repo, Mockito.times(1)).findAll();
+    }
+    @Test
+    void testGetCohortById() {
+        // GIVEN
+        Long id = 1L;
+        Cohort cohort = new Cohort("Areeb");
+        cohort.setCohortId(id); // cohort object to match the one in cohort-data.sql
+        List<Cohort> cohorts = new ArrayList<>();
+        cohorts.add(cohort);
+
+        // WHEN
+        Mockito.when(this.repo.findById(id)).thenReturn(Optional.of(cohort));
+
+        // THEN
+        assertThat(this.service.getCohortById(id));
+
+        Mockito.verify(this.repo, Mockito.times(1)).findById(id);
     }
 }

@@ -3,6 +3,7 @@ package com.qa.sfia3.domain;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Trainee {
@@ -24,7 +25,7 @@ public class Trainee {
     @JoinColumn(name="cohortId", nullable = false)
     private Cohort cohort;
 
-    public Trainee() {
+    public Trainee(int i, String areeb, String panjwani) {
     }
 
     public Trainee(String forename, String surname) {
@@ -51,4 +52,21 @@ public class Trainee {
     public Cohort getCohort() { return cohort; }
 
     public void setCohort(Cohort cohort) { this.cohort = cohort; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trainee trainee = (Trainee) o;
+        return Objects.equals(traineeId, trainee.traineeId) &&
+                Objects.equals(forename, trainee.forename) &&
+                Objects.equals(surname, trainee.surname) &&
+                Objects.equals(tickets, trainee.tickets) &&
+                Objects.equals(cohort, trainee.cohort);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(traineeId, forename, surname, tickets, cohort);
+    }
 }

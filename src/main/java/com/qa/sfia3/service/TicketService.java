@@ -37,13 +37,13 @@ public class TicketService {
     }
 
     public Boolean deleteTicket(Long id) {
-        this.repo.deleteById(id);
-        return !this.repo.existsById(id);
-//        if(!this.repo.existsById(id)) {
+//        this.repo.deleteById(id);
+//        return !this.repo.existsById(id);
+//        if(this.repo.existsById(id)) {
 //            throw new TicketNotFoundException();
 //        }
-//        this.repo.deleteById(id);
-//        return this.repo.existsById(id);
+        this.repo.deleteById(id);
+        return !this.repo.existsById(id);
     }
 
     public TicketDTO updateStatus(Long id, Ticket ticket) {

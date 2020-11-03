@@ -49,7 +49,7 @@ public class TickerIntegrationTest {
     TicketRepository ticketRepository;
 
     @Test
-    void testCreate() throws Exception {
+    void testAddTicket() throws Exception {
         Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
         String requestBody = this.mapper.writeValueAsString(newTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
@@ -57,7 +57,7 @@ public class TickerIntegrationTest {
         ResultMatcher checkStatus = status().is(201);
 
         Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
-        savedTicket.setTicketId(6L);
+        savedTicket.setTicketId(5L);
 
         String resultBody = this.mapper.writeValueAsString(savedTicket);
         ResultMatcher checkBody = content().json(resultBody);
@@ -77,7 +77,7 @@ public class TickerIntegrationTest {
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
         ResultMatcher checkStatus = status().is(201);
         Ticket savedTicket = new Ticket("yoyo","ayy","idunno");
-        savedTicket.setTicketId(5L);
+        savedTicket.setTicketId(6L);
         String resultBody = this.mapper.writeValueAsString(savedTicket);
         ResultMatcher checkBody = content().json(resultBody);
         MvcResult result = this.mockMVC.perform(request).andExpect(checkStatus).andReturn();
@@ -90,11 +90,11 @@ public class TickerIntegrationTest {
         // edit the ticket that was just added
         Ticket newTicket = new Ticket("yoyo","ayy","idunno");
         String ticketValue = this.mapper.writeValueAsString(newTicket);
-        RequestBuilder ask = put("/editTicket/5").contentType(MediaType.APPLICATION_JSON).content(ticketValue);
+        RequestBuilder ask = put("/editTicket/6").contentType(MediaType.APPLICATION_JSON).content(ticketValue);
 //        ResultMatcher Status = status().isAccepted();
         ResultMatcher Status = status().is(200);
         Ticket updatedTicket = new Ticket("yoyo","ayy","idunno");
-        updatedTicket.setTicketId(5L);
+        updatedTicket.setTicketId(6L);
 
         String results = this.mapper.writeValueAsString(updatedTicket);
         ResultMatcher check = content().json(results);
@@ -131,7 +131,7 @@ public class TickerIntegrationTest {
 
         RequestBuilder ask = delete("/deleteTicket/7");
 
-        ResultMatcher Status = status().is(204);
+        ResultMatcher Status = status().is(200);
 
         this.mockMVC.perform(ask).andExpect(Status);
 
@@ -141,7 +141,7 @@ public class TickerIntegrationTest {
     }
     @Test
 //    @Sql("/test.sql")
-    void testRead() throws Exception {
+    void testViewAllTickets() throws Exception {
         Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
         String requestBody = this.mapper.writeValueAsString(newTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
@@ -149,7 +149,7 @@ public class TickerIntegrationTest {
         ResultMatcher checkStatus = status().is(201);
 
         Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
-        savedTicket.setTicketId(1L);
+        savedTicket.setTicketId(8L);
 
         String resultBody = this.mapper.writeValueAsString(savedTicket);
         ResultMatcher checkBody = content().json(resultBody);
@@ -162,7 +162,7 @@ public class TickerIntegrationTest {
 
         //list tickets
         Ticket ticket = new Ticket("Areeb","Problems","Springboot");
-        ticket.setTicketId(1L); // ticket object to match the one in ticket-data.sql
+        ticket.setTicketId(8L); // ticket object to match the one in ticket-data.sql
         List<Ticket> tickets = new ArrayList<>();
         tickets.add(ticket);
         String responseBody = this.mapper.writeValueAsString(tickets);
@@ -206,8 +206,35 @@ public class TickerIntegrationTest {
         String req = res.getResponse().getContentAsString();
         Ticket ticketR = this.mapper.readValue(reqBody, Ticket.class);
         assertThat(ticketR).isEqualToIgnoringGivenFields(updatedTicket, "localDateTime");
+    }
+    @Test
+//    @Sql("/test.sql")
+    void testGetTicketById() throws Exception {
+        Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
+        String requestBody = this.mapper.writeValueAsString(newTicket);
+        RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
+        ResultMatcher checkStatus = status().is(201);
 
+        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
+        savedTicket.setTicketId(1L);
 
+        String resultBody = this.mapper.writeValueAsString(savedTicket);
+        ResultMatcher checkBody = content().json(resultBody);
+        MvcResult result = this.mockMVC.perform(request).andExpect(checkStatus).andReturn();
+        // In case you need to access the actual result as an object:
+        String reqBody = result.getResponse().getContentAsString();
+
+        Ticket ticketResult = this.mapper.readValue(reqBody, Ticket.class);
+        assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
+
+        //list tickets
+        Ticket ticket = new Ticket("Areeb","Problems","Springboot");
+        ticket.setTicketId(1L); // ticket object to match the one in ticket-data.sql
+        List<Ticket> tickets = new ArrayList<>();
+        tickets.add(ticket);
+        String responseBody = this.mapper.writeValueAsString(tickets);
+
+        this.mockMVC.perform(get("/getTicketById/1")).andExpect(status().isOk());
     }
 }
