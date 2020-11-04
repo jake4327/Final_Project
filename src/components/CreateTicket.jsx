@@ -30,7 +30,7 @@ const CreateTicket = () => {
             console.log(error);
         });
         history.push("/home");
-        history.go(0);
+        window.location.reload();
     }
 
     const handleTitle = event => {

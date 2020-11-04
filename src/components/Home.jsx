@@ -16,7 +16,7 @@ const Home = (props) => {
     const [user, setUser] = useState({data:{}});
     let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
     let newTickets = oldTickets.slice().reverse();
-    let data = JSON.parse(localStorage.getItem("user"));
+    const data = JSON.parse(localStorage.getItem("user"));
     //console.log(cohorts);
     //console.log(JSON.stringify(user.tickets));
     console.log(user);
@@ -67,17 +67,18 @@ const Home = (props) => {
                             data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                         ))}
                     </Tab>
-                    <Tab eventKey="my-tickets" title="My Tickets">
+                    {user.role === true ? <Tab eventKey="my-tickets" title="My Tickets">
                         <br/>
                         {cohorts.map(cohort => (
                             cohort.trainees.map(trainee => (
-                                trainee.tickets.map(ticket => (
-                                    // ticket.ticketId === data ? <TicketTemplate data={JSON.stringify(ticket)} key={ticket.ticketId}/> : "test"
-                                    console.log(ticket.traineeId)
-                                ))
+                                trainee.traineeId === user.traineeId ?
+                                    trainee.tickets.map(ticket => (
+                                        <TicketTemplate data={ticket} key={ticket.ticketId} />
+                                    ))
+                                : ""
                             ))
                         ))}
-                    </Tab>
+                    </Tab> : ""}
                     {cohorts.map( (cohort) => (
                         <Tab eventKey={cohort.cohortId} title={cohort.name} key={cohort.cohortId}>
                             <br/>

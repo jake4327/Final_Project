@@ -26,7 +26,7 @@ const EditTicket = (props) => {
             console.log(error);
         });
         history.push({pathname: "/home"});
-        history.go(0);
+        window.location.reload();
     }
 
     const handleTitle = event => {
