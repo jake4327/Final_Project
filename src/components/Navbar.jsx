@@ -4,8 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 
 const Navigationbar = () => {
-    const user = localStorage.getItem("user");
-    console.log(user);
+    const user = JSON.parse(localStorage.getItem("user"));
 
     const handleLogOut = (click) => {
         click.preventDefault();
@@ -18,7 +17,7 @@ const Navigationbar = () => {
                 <Navbar.Brand>Help Queue</Navbar.Brand>
                 <Nav>
                 <Nav.Link href="/home">Home</Nav.Link>
-                <Nav.Link href="/create-ticket">Create Ticket</Nav.Link>
+                {user.role === true ? <Nav.Link href="/create-ticket">Create Ticket</Nav.Link> : ""}
                 </Nav>
                 <Button variant="outline-light" onClick={handleLogOut}>Log Out</Button>
             </Navbar>
