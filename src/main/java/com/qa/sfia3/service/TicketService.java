@@ -49,13 +49,12 @@ public class TicketService {
     public TicketDTO updateStatus(Long id, Ticket ticket) {
         Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
         update.setStatus(ticket.getStatus());
-        return this.mapToDTO(this.repo.save(ticket));
+        return this.mapToDTO(this.repo.save(update));
     }
 
     public TicketDTO editTicket(Long id, Ticket ticket) {
         Optional<Ticket> optTicket = this.repo.findById(id);
         Ticket oldTicket = optTicket.orElseThrow(() -> new TicketNotFoundException());
-//      Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
         oldTicket.setTitle(ticket.getTitle());
         oldTicket.setDescription(ticket.getDescription());
         oldTicket.setTopic(ticket.getTopic());
@@ -68,9 +67,11 @@ public class TicketService {
     }
 
     public TicketDTO updateSolution(Long id, Ticket ticket) {
-        Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
-        update.setSolution(ticket.getSolution());
-        return this.mapToDTO(this.repo.save(update));
+        Optional<Ticket> optTicket = this.repo.findById(id);
+        Ticket oldTicket = optTicket.orElseThrow(() -> new TicketNotFoundException());
+        oldTicket.setSolution(ticket.getSolution());
+        TicketDTO saved = this.mapToDTO(this.repo.save(oldTicket));
+        return saved;
     }
 
 }
