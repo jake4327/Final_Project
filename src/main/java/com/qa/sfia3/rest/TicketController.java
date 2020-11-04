@@ -58,4 +58,10 @@ public class TicketController {
         return ResponseEntity.ok(this.ticketService.updateStatus(id, ticket));
     }
 
+    @CrossOrigin
+    @PutMapping("/editSolution/{id}")
+    public ResponseEntity<TicketDTO> editSolution(@PathVariable Long id, @RequestBody Ticket ticket) {
+        return ResponseEntity.ok(this.ticketService.updateSolution(id, ticket));
+    }
+
 }
