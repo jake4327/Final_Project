@@ -67,4 +67,10 @@ public class TicketService {
         return this.mapToDTO(this.repo.findById(id).orElseThrow(TicketNotFoundException::new));
     }
 
+    public TicketDTO updateSolution(Long id, Ticket ticket) {
+        Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
+        update.setSolution(ticket.getSolution());
+        return this.mapToDTO(this.repo.save(update));
+    }
+
 }

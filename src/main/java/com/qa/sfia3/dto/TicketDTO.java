@@ -10,14 +10,16 @@ public class TicketDTO {
     private String topic;
     private java.time.LocalDateTime localDateTime;
     private Boolean status;
+    private String solution;
 
     public TicketDTO() {
     }
 
-    public TicketDTO(String title, String description, String topic) {
+    public TicketDTO(String title, String description, String topic, String solution) {
         this.title = title;
         this.description = description;
         this.topic = topic;
+        this.solution = solution;
     }
 
     public Long getTicketId() {
@@ -63,4 +65,8 @@ public class TicketDTO {
     public LocalDateTime getLocalDateTime() { return localDateTime; }
 
     public void setLocalDateTime(LocalDateTime localDateTime) { this.localDateTime = localDateTime; }
+
+    public String getSolution() { return solution; }
+
+    public void setSolution(String solution) { this.solution = solution; }
 }

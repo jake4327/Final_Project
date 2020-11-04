@@ -15,5 +15,5 @@ const createTicket = () => {
         }
     };
     req.setRequestHeader("Content-type", "application/json;charset=UTF-8");
-    req.send(JSON.stringify({ title: obj.title, description: obj.description, trainee: obj.trainee }));
+    req.send(JSON.stringify({ title: obj.title, description: obj.description, topic: obj.topic }));
 }

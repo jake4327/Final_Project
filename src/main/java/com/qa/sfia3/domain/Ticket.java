@@ -28,16 +28,20 @@ public class Ticket {
     @Column()
     private Boolean status = false;
 
+    @Column
+    private String solution;
+
     @ManyToOne(targetEntity = Trainee.class)
     private Trainee trainee;
 
     public Ticket() {
     }
 
-    public Ticket(String title, String description, String topic) {
+    public Ticket(String title, String description, String topic, String solution) {
         this.title = title;
         this.description = description;
         this.topic = topic;
+        this.solution = solution;
     }
 
     public Long getTicketId() {
@@ -81,6 +85,10 @@ public class Ticket {
     public Trainee getTrainee() { return trainee; }
 
     public void setTrainee(Trainee trainee) { this.trainee = trainee; }
+  
+    public String getSolution() { return solution; }
+
+    public void setSolution(String solution) { this.solution = solution; }
 
     @Override
     public boolean equals(Object o) {
