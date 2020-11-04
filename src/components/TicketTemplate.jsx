@@ -8,17 +8,14 @@ import axios from 'axios';
 const TicketTemplate = (props) => {
     const history = useHistory();
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    let solution;
 
-    const handleStatus = (props) => {
-        let status = props.status;
-        if(status) {
-            return("Solved");
-        } else if(!status) {
-            return("Unsolved");
-        }
+    if(props.data.status == false) {
+        solution = "Unsolved";
+    } else if(props.data.status == true) {
+        solution = "Solved";
     }
 
     const handleEditClick = (click) => {
@@ -92,7 +89,7 @@ const TicketTemplate = (props) => {
                         Topic: {props.data.topic}
                     </Card.Text>
                     <Card.Text>
-                        Solved: {handleStatus(props.data.status)}
+                        Solved: {solution}
                     </Card.Text>
                     <Card.Text>
                         Date and Time: {formatTime(props.data.localDateTime)}

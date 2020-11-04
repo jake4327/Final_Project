@@ -64,7 +64,7 @@ const Home = (props) => {
                     <Tab eventKey="all-tickets" title="All Tickets">
                         <br/>
                         {items.map( (data) => (
-                            <TicketTemplate data={data} key={data.ticketId}/>
+                            data.status == false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                         ))}
                     </Tab>
                     <Tab eventKey="my-tickets" title="My Tickets">
@@ -83,19 +83,24 @@ const Home = (props) => {
                             <br/>
                             {cohort.trainees.map(trainee => (
                                 trainee.tickets.map(ticket => (
-                                    <TicketTemplate data={ticket} key={ticket.ticketId}/>
+                                    ticket.status == false ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
                                 ))
                             ))}
                         </Tab>
                     ))}
                     <Tab eventKey="oldest" title="Oldest Tickets">
                         {oldTickets.map( (data) => (
-                            <TicketTemplate data={data} key={data.ticketId}/>
+                            data.status == false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                         ))}
                     </Tab>
                     <Tab eventKey="newest" title="Newest Tickets">
                         {newTickets.map( (data) => (
-                            <TicketTemplate data={data} key={data.ticketId}/>
+                            data.status == false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                        ))}
+                    </Tab>
+                    <Tab eventKey="solved" title="Solved Tickets">
+                        {items.map(ticket => (
+                            ticket.status == true ? <TicketTemplate data={ticket} key={ticket.ticketId} /> : ""
                         ))}
                     </Tab>
                 </Tabs>
