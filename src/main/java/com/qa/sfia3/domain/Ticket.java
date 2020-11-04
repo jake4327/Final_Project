@@ -1,7 +1,10 @@
 package com.qa.sfia3.domain;
 
+import com.qa.sfia3.dto.TicketDTO;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 public class Ticket {
@@ -82,8 +85,27 @@ public class Ticket {
     public Trainee getTrainee() { return trainee; }
 
     public void setTrainee(Trainee trainee) { this.trainee = trainee; }
-
+  
     public String getSolution() { return solution; }
 
     public void setSolution(String solution) { this.solution = solution; }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ticket)) return false;
+        Ticket ticket = (Ticket) o;
+        return Objects.equals(ticketId, ticket.ticketId) &&
+                Objects.equals(title, ticket.title) &&
+                Objects.equals(description, ticket.description) &&
+                Objects.equals(topic, ticket.topic) &&
+                Objects.equals(localDateTime, ticket.localDateTime) &&
+                Objects.equals(status, ticket.status) &&
+                Objects.equals(trainee, ticket.trainee);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ticketId, title, description, topic, localDateTime, status, trainee);
+    }
 }
