@@ -6,7 +6,6 @@ import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 const EditTicket = (props) => {
-    console.log(props.location.state.data);
     const data = props.location.state.data;
     const [title, setTitle] = useState([]);
     const [description, setDescription] = useState([]);
@@ -54,7 +53,7 @@ const EditTicket = (props) => {
                 </Form.Group>
                 <Form.Group controlId="description">
                     <Form.Label>Description</Form.Label>
-                    <Form.Control type="text" placeholder={data.description} onChange={handleDescription}>   
+                    <Form.Control as="textarea" placeholder={data.description} onChange={handleDescription} rows={5}>   
                     </Form.Control>
                     <Form.Text>Enter a new description</Form.Text>
                 </Form.Group>

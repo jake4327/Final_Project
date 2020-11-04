@@ -19,6 +19,7 @@ const Home = (props) => {
     let data = JSON.parse(localStorage.getItem("user"));
     console.log(cohorts);
     console.log(JSON.stringify(user.tickets));
+    console.log(user);
 
     useEffect( () => {
         axios.get("http://localhost:8080/viewAllTickets")

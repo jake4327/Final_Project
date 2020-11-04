@@ -34,6 +34,19 @@ const TicketTemplate = (props) => {
         }); 
     }
 
+    const handleSolution = (click) => {
+        let data = props.data;
+        let user = props.user;
+        click.preventDefault();
+        history.push({
+            pathname: "/edit-solution",
+            state:{
+                data:data,
+                userInfo:user
+            }
+        })
+    }
+
     const deleteTicket = () => {
         let data = props.data;
         console.log(data);
@@ -88,6 +101,7 @@ const TicketTemplate = (props) => {
                 <Card.Body>
                     <Button variant="primary" onClick={handleEditClick}>Edit</Button>
                     <Button variant="primary" onClick={handleShow}>Delete</Button>
+                    <Button variant="primary" onClick={handleSolution}>Add Solution</Button>
                 </Card.Body>
             </Card>
             <Modal show={show} onHide={handleClose}>

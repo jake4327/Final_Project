@@ -7,6 +7,7 @@ import LandingPage from './components/LandingPage';
 import TrainerReg from './components/TrainerReg';
 import TraineeReg from './components/TraineeReg';
 import EditTicket from './components/EditTicket';
+import EditSolution from './components/EditSolution';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/trainee" component={TraineeReg} />
           <Route path="/trainer" component={TrainerReg} />
           <Route path="/edit-ticket" component={EditTicket} />
+          <Route path="/edit-solution" component={EditSolution} />
         </Switch>
       </Router>
     </div>
