@@ -9,6 +9,7 @@ public class TrainerDTO {
     private String forename;
     private String surname;
     private List<CohortDTO> cohorts = new ArrayList<>();
+    private Boolean role;
 
     public TrainerDTO() {
     }
@@ -33,4 +34,8 @@ public class TrainerDTO {
     public List<CohortDTO> getCohorts() { return cohorts; }
 
     public void setCohorts(List<CohortDTO> cohorts) { this.cohorts = cohorts; }
+
+    public Boolean getRole() { return role; }
+
+    public void setRole(Boolean role) { this.role = role; }
 }

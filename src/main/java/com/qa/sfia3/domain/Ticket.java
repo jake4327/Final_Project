@@ -72,9 +72,7 @@ public class Ticket {
         return status;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
-    }
+    public void setStatus(Boolean status) { this.status = status; }
 
     public LocalDateTime getLocalDateTime() { return localDateTime; }
 

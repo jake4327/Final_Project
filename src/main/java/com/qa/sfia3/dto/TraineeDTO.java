@@ -12,6 +12,7 @@ public class TraineeDTO {
     private String surname;
     private List<TicketDTO> tickets = new ArrayList<>();
     private Cohort cohort;
+    private Boolean role;
 
     public TraineeDTO() {
     }
@@ -36,4 +37,8 @@ public class TraineeDTO {
     public List<TicketDTO> getTickets() { return tickets; }
 
     public void setTickets(List<TicketDTO> tickets) { this.tickets = tickets; }
+
+    public Boolean getRole() { return role; }
+
+    public void setRole(Boolean role) { this.role = role; }
 }

@@ -18,6 +18,9 @@ public class Trainee {
     @Column
     private String surname;
 
+    @Column
+    private Boolean role = true;
+
     @OneToMany(mappedBy = "trainee", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
     private List<Ticket> tickets = new ArrayList<>();
 
@@ -52,6 +55,10 @@ public class Trainee {
     public Cohort getCohort() { return cohort; }
 
     public void setCohort(Cohort cohort) { this.cohort = cohort; }
+
+    public Boolean getRole() { return role; }
+
+    public void setRole(Boolean role) { this.role = role; }
 
     @Override
     public boolean equals(Object o) {

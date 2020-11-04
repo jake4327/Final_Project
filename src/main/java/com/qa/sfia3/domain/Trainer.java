@@ -18,6 +18,9 @@ public class Trainer {
     @Column
     private String surname;
 
+    @Column
+    private Boolean role = false;
+
     @ManyToMany
     @JoinTable(
             name="trainerCohort",
@@ -48,6 +51,12 @@ public class Trainer {
     public List<Cohort> getCohorts() { return cohorts; }
 
     public void setCohorts(List<Cohort> cohorts) { this.cohorts = cohorts; }
+
+    public Boolean getRole() { return role; }
+
+    public void setRole(Boolean role) {
+        this.role = role;
+    }
 
     public void addCohort(List<Cohort> newCohorts) {
         for(int i = 0; i < newCohorts.size(); i++) {
