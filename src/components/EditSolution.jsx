@@ -21,6 +21,7 @@ const EditSolution = (props) => {
         .catch(function (error) {
             console.log(error);
         });
+        window.location.reload();
         axios.put(`http://localhost:8080/updateStatus/${data.ticketId}`, {
             status: true
         })
