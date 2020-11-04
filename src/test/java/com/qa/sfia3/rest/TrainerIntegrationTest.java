@@ -9,6 +9,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -24,6 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class TrainerIntegrationTest {
     @Autowired
     private MockMvc mockMVC;
@@ -43,7 +47,7 @@ public class TrainerIntegrationTest {
         ResultMatcher checkStatus = status().is(201);
 
         Trainer savedTrainer = new Trainer("Areeb","Panjwani");
-        savedTrainer.setTrainerId(6L);
+        savedTrainer.setTrainerId(1L);
 
         String resultBody = this.mapper.writeValueAsString(savedTrainer);
         ResultMatcher checkBody = content().json(resultBody);
@@ -151,24 +155,5 @@ public class TrainerIntegrationTest {
 
         this.mockMVC.perform(get("/getTrainerById/1")).andExpect(status().isOk());
     }
-    @Test
-    void testAddTrainerCohort() throws Exception {
-        Trainer newTrainer = new Trainer("Areeb","Panjwani");
-        String requestBody = this.mapper.writeValueAsString(newTrainer);
-        RequestBuilder request = post("/addTrainerCohort/6").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
-        ResultMatcher checkStatus = status().is(201);
-
-        Trainer savedTrainer = new Trainer("Areeb","Panjwani");
-        savedTrainer.setTrainerId(6L);
-
-        String resultBody = this.mapper.writeValueAsString(savedTrainer);
-        ResultMatcher checkBody = content().json(resultBody);
-        MvcResult result = this.mockMVC.perform(request).andExpect(checkStatus).andReturn();
-        // In case you need to access the actual result as an object:
-        String reqBody = result.getResponse().getContentAsString();
-
-        Trainer trainerResult = this.mapper.readValue(reqBody, Trainer.class);
-        assertThat(trainerResult).isEqualToComparingOnlyGivenFields(savedTrainer, "forename");
-    }
 }

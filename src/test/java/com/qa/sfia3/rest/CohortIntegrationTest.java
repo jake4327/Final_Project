@@ -10,6 +10,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
@@ -25,6 +27,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class CohortIntegrationTest {
     @Autowired
     private MockMvc mockMVC;
@@ -44,7 +48,7 @@ public class CohortIntegrationTest {
         ResultMatcher checkStatus = status().is(201);
 
         Cohort savedCohort = new Cohort("Areeb");
-        savedCohort.setCohortId(6L);
+        savedCohort.setCohortId(1L);
 
         String resultBody = this.mapper.writeValueAsString(savedCohort);
         ResultMatcher checkBody = content().json(resultBody);
@@ -59,11 +63,11 @@ public class CohortIntegrationTest {
 //   @Sql("/test.sql")
     void testEditCohort() throws Exception {
         //add a cohort
-        Cohort oldCohort = new Cohort("yoyo");
+        Cohort oldCohort = new Cohort("Areeb");
         String requestBody = this.mapper.writeValueAsString(oldCohort);
         RequestBuilder request = post("/addCohort").contentType(MediaType.APPLICATION_JSON).content(requestBody);
         ResultMatcher checkStatus = status().is(201);
-        Cohort savedCohort = new Cohort("yoyo");
+        Cohort savedCohort = new Cohort("Areeb");
         savedCohort.setCohortId(1L);
         String resultBody = this.mapper.writeValueAsString(savedCohort);
         ResultMatcher checkBody = content().json(resultBody);
@@ -75,12 +79,12 @@ public class CohortIntegrationTest {
         assertThat(cohortResult).isEqualToComparingOnlyGivenFields(savedCohort, "name");
 
         // edit the cohort that was just added
-        Cohort newCohort = new Cohort("yoyo");
+        Cohort newCohort = new Cohort("Areeb");
         String cohortValue = this.mapper.writeValueAsString(newCohort);
         RequestBuilder ask = put("/editCohort/1").contentType(MediaType.APPLICATION_JSON).content(cohortValue);
 //        ResultMatcher Status = status().isAccepted();
         ResultMatcher Status = status().is(200);
-        Cohort updatedCohort = new Cohort("yoyo");
+        Cohort updatedCohort = new Cohort("Areeb");
         updatedCohort.setCohortId(1L);
 
         String results = this.mapper.writeValueAsString(updatedCohort);
