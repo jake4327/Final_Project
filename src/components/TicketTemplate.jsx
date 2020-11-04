@@ -12,9 +12,9 @@ const TicketTemplate = (props) => {
     const handleShow = () => setShow(true);
     let solution;
 
-    if(props.data.status == false) {
+    if(props.data.status === false) {
         solution = "Unsolved";
-    } else if(props.data.status == true) {
+    } else if(props.data.status === true) {
         solution = "Solved";
     }
 
@@ -96,9 +96,9 @@ const TicketTemplate = (props) => {
                     </Card.Text>
                 </Card.Body>
                 <Card.Body>
-                    <Button variant="primary" onClick={handleEditClick}>Edit</Button>
+                    {props.data.status === false ? <><Button variant="primary" onClick={handleEditClick}>Edit</Button>  </>: ""}
+                    {props.data.status === false ? <><Button variant="primary" onClick={handleSolution}>Add Solution</Button>  </> : ""}
                     <Button variant="primary" onClick={handleShow}>Delete</Button>
-                    <Button variant="primary" onClick={handleSolution}>Add Solution</Button>
                 </Card.Body>
             </Card>
             <Modal show={show} onHide={handleClose}>

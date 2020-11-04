@@ -17,9 +17,9 @@ const Home = (props) => {
     let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
     let newTickets = oldTickets.slice().reverse();
     let data = JSON.parse(localStorage.getItem("user"));
-    console.log(cohorts);
-    console.log(JSON.stringify(user.tickets));
-    console.log(user);
+    //console.log(cohorts);
+    //console.log(JSON.stringify(user.tickets));
+    //console.log(user);
 
     useEffect( () => {
         axios.get("http://localhost:8080/viewAllTickets")
@@ -64,7 +64,7 @@ const Home = (props) => {
                     <Tab eventKey="all-tickets" title="All Tickets">
                         <br/>
                         {items.map( (data) => (
-                            data.status == false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                            data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                         ))}
                     </Tab>
                     <Tab eventKey="my-tickets" title="My Tickets">
@@ -83,24 +83,24 @@ const Home = (props) => {
                             <br/>
                             {cohort.trainees.map(trainee => (
                                 trainee.tickets.map(ticket => (
-                                    ticket.status == false ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
+                                    ticket.status === false ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
                                 ))
                             ))}
                         </Tab>
                     ))}
                     <Tab eventKey="oldest" title="Oldest Tickets">
                         {oldTickets.map( (data) => (
-                            data.status == false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                            data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                         ))}
                     </Tab>
                     <Tab eventKey="newest" title="Newest Tickets">
                         {newTickets.map( (data) => (
-                            data.status == false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                            data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                         ))}
                     </Tab>
                     <Tab eventKey="solved" title="Solved Tickets">
                         {items.map(ticket => (
-                            ticket.status == true ? <TicketTemplate data={ticket} key={ticket.ticketId} /> : ""
+                            ticket.status === true ? <TicketTemplate data={ticket} key={ticket.ticketId} /> : ""
                         ))}
                     </Tab>
                 </Tabs>

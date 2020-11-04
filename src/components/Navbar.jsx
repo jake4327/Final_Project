@@ -4,6 +4,9 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 
 const Navigationbar = () => {
+    const user = localStorage.getItem("user");
+    console.log(user);
+
     const handleLogOut = (click) => {
         click.preventDefault();
         localStorage.removeItem("user");
