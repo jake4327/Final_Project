@@ -1,7 +1,5 @@
 package com.qa.sfia3.domain;
 
-import com.qa.sfia3.dto.TicketDTO;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;

@@ -25,7 +25,7 @@ public class Trainee {
     @JoinColumn(name="cohortId", nullable = false)
     private Cohort cohort;
 
-    public Trainee(int i, String areeb, String panjwani) {
+    public Trainee() {
     }
 
     public Trainee(String forename, String surname) {

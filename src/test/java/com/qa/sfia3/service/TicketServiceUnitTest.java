@@ -34,8 +34,8 @@ public class TicketServiceUnitTest {
     void testCreate(){
         //Given
         Long id = 1L;
-        Ticket newTicket = new Ticket ("Areeb","Problems","Springboot");
-        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket newTicket = new Ticket ("Areeb","Problems","Springboot","default");
+        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot","default");
         savedTicket.setTicketId(id);
         //When
         Mockito.when(this.repo.save(newTicket)).thenReturn(savedTicket);
@@ -62,7 +62,7 @@ public class TicketServiceUnitTest {
     @Test
     void testGet() {
         // GIVEN
-        Ticket ticket = new Ticket("Areeb","Problems","Springboot");
+        Ticket ticket = new Ticket("Areeb","Problems","Springboot","default");
         ticket.setTicketId(1L); // ticket object to match the one in ticket-data.sql
         List<Ticket> tickets = new ArrayList<>();
         tickets.add(ticket);
@@ -80,12 +80,12 @@ public class TicketServiceUnitTest {
         //Given
         Long id = 1L;
         //Will be passed in
-        Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket newTicket = new Ticket("Areeb","Problems","Springboot","default");
         //will be findById()
-        Ticket oldTicket = new Ticket("sajid","solutions","boot");
+        Ticket oldTicket = new Ticket("sajid","solutions","boot","default");
         oldTicket.setTicketId(id);
         //will be saved back to db and returned by method
-        Ticket updatedTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket updatedTicket = new Ticket("Areeb","Problems","Springboot","default");
         updatedTicket.setTicketId(id);
 
         //When
@@ -102,7 +102,7 @@ public class TicketServiceUnitTest {
     void testGetTicketById() {
         // GIVEN
         Long id = 1L;
-        Ticket ticket = new Ticket("Areeb","Problems","Springboot");
+        Ticket ticket = new Ticket("Areeb","Problems","Springboot","default");
         ticket.setTicketId(id); // ticket object to match the one in ticket-data.sql
         List<Ticket> tickets = new ArrayList<>();
         tickets.add(ticket);

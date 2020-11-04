@@ -50,13 +50,13 @@ public class TickerIntegrationTest {
 
     @Test
     void testAddTicket() throws Exception {
-        Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket newTicket = new Ticket("Areeb","Problems","Springboot", "default solution");
         String requestBody = this.mapper.writeValueAsString(newTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
         ResultMatcher checkStatus = status().is(201);
 
-        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot", "default solution");
         savedTicket.setTicketId(5L);
 
         String resultBody = this.mapper.writeValueAsString(savedTicket);
@@ -72,11 +72,11 @@ public class TickerIntegrationTest {
 //   @Sql("/test.sql")
     void testEditTicket() throws Exception {
         //add a ticket
-        Ticket oldTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket oldTicket = new Ticket("yoyo","ayy","idunno", "default");
         String requestBody = this.mapper.writeValueAsString(oldTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
         ResultMatcher checkStatus = status().is(201);
-        Ticket savedTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket savedTicket = new Ticket("yoyo","ayy","idunno", "default");
         savedTicket.setTicketId(6L);
         String resultBody = this.mapper.writeValueAsString(savedTicket);
         ResultMatcher checkBody = content().json(resultBody);
@@ -88,12 +88,12 @@ public class TickerIntegrationTest {
         assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
 
         // edit the ticket that was just added
-        Ticket newTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket newTicket = new Ticket("yoyo","ayy","idunno", "default");
         String ticketValue = this.mapper.writeValueAsString(newTicket);
         RequestBuilder ask = put("/editTicket/6").contentType(MediaType.APPLICATION_JSON).content(ticketValue);
 //        ResultMatcher Status = status().isAccepted();
         ResultMatcher Status = status().is(200);
-        Ticket updatedTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket updatedTicket = new Ticket("yoyo","ayy","idunno", "default");
         updatedTicket.setTicketId(6L);
 
         String results = this.mapper.writeValueAsString(updatedTicket);
@@ -110,13 +110,13 @@ public class TickerIntegrationTest {
 
     @Test
     void testDelete() throws Exception {
-        Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket newTicket = new Ticket("Areeb","Problems","Springboot", "default");
         String requestBody = this.mapper.writeValueAsString(newTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
         ResultMatcher checkStatus = status().is(201);
 
-        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot", "default");
         savedTicket.setTicketId(7L);
 
         String resultBody = this.mapper.writeValueAsString(savedTicket);
@@ -142,13 +142,13 @@ public class TickerIntegrationTest {
     @Test
 //    @Sql("/test.sql")
     void testViewAllTickets() throws Exception {
-        Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket newTicket = new Ticket("Areeb","Problems","Springboot", "default");
         String requestBody = this.mapper.writeValueAsString(newTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
         ResultMatcher checkStatus = status().is(201);
 
-        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot", "default");
         savedTicket.setTicketId(8L);
 
         String resultBody = this.mapper.writeValueAsString(savedTicket);
@@ -161,7 +161,7 @@ public class TickerIntegrationTest {
         assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
 
         //list tickets
-        Ticket ticket = new Ticket("Areeb","Problems","Springboot");
+        Ticket ticket = new Ticket("Areeb","Problems","Springboot", "default");
         ticket.setTicketId(8L); // ticket object to match the one in ticket-data.sql
         List<Ticket> tickets = new ArrayList<>();
         tickets.add(ticket);
@@ -175,11 +175,11 @@ public class TickerIntegrationTest {
     @Test
     void testUpdateStatus() throws Exception {
         //add a ticket
-        Ticket oldTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket oldTicket = new Ticket("yoyo","ayy","idunno", "default");
         String requestBody = this.mapper.writeValueAsString(oldTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
         ResultMatcher checkStatus = status().is(201);
-        Ticket savedTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket savedTicket = new Ticket("yoyo","ayy","idunno", "default");
         savedTicket.setTicketId(2L);
         String resultBody = this.mapper.writeValueAsString(savedTicket);
         ResultMatcher checkBody = content().json(resultBody);
@@ -191,12 +191,12 @@ public class TickerIntegrationTest {
         assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
 
         // edit the ticket that was just added
-        Ticket newTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket newTicket = new Ticket("yoyo","ayy","idunno", "default");
         String ticketValue = this.mapper.writeValueAsString(newTicket);
         RequestBuilder ask = put("/updateStatus/2").contentType(MediaType.APPLICATION_JSON).content(ticketValue);
 //        ResultMatcher Status = status().isAccepted();
         ResultMatcher Status = status().is(200);
-        Ticket updatedTicket = new Ticket("yoyo","ayy","idunno");
+        Ticket updatedTicket = new Ticket("yoyo","ayy","idunno", "default");
         updatedTicket.setTicketId(2L);
 
         String results = this.mapper.writeValueAsString(updatedTicket);
@@ -210,13 +210,13 @@ public class TickerIntegrationTest {
     @Test
 //    @Sql("/test.sql")
     void testGetTicketById() throws Exception {
-        Ticket newTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket newTicket = new Ticket("Areeb","Problems","Springboot", "default");
         String requestBody = this.mapper.writeValueAsString(newTicket);
         RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
         ResultMatcher checkStatus = status().is(201);
 
-        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot");
+        Ticket savedTicket = new Ticket("Areeb","Problems","Springboot", "default");
         savedTicket.setTicketId(1L);
 
         String resultBody = this.mapper.writeValueAsString(savedTicket);
@@ -229,7 +229,7 @@ public class TickerIntegrationTest {
         assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
 
         //list tickets
-        Ticket ticket = new Ticket("Areeb","Problems","Springboot");
+        Ticket ticket = new Ticket("Areeb","Problems","Springboot", "default");
         ticket.setTicketId(1L); // ticket object to match the one in ticket-data.sql
         List<Ticket> tickets = new ArrayList<>();
         tickets.add(ticket);
