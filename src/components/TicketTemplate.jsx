@@ -94,6 +94,9 @@ const TicketTemplate = (props) => {
                     <Card.Text>
                         Date and Time: {formatTime(props.data.localDateTime)}
                     </Card.Text>
+                    {props.data.status === true ? <Card.Text>
+                        Solution: {props.data.solution}
+                    </Card.Text> : ""}
                 </Card.Body>
                 <Card.Body>
                     {props.data.status === false ? <><Button variant="primary" onClick={handleEditClick}>Edit</Button>  </>: ""}

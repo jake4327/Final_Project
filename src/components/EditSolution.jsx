@@ -30,8 +30,8 @@ const EditSolution = (props) => {
         .then(function (error) {
             console.log(error);
         });
-        history.push({pathname: "/home"});
-        history.go(0);
+        history.push("/home");
+        history.go();
     }
 
     const handleSolution = event => {
