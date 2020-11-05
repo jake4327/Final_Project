@@ -47,7 +47,7 @@ pipeline {
         //     }
         // }
 
-         stage('ssh into NEXUS and push to private repo') {
+        stage('ssh into NEXUS and push to private repo') {
             steps {
                     sh ''' 
                     ssh ubuntu@10.0.3.249 <<EOF
@@ -55,7 +55,7 @@ pipeline {
                     docker pull jstoneqa/sfia-3-backend
                     docker tag jstoneqa/sfia-3-backend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
                     docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
-EOF                             
+EOF           
                     '''                   
             }
         }
