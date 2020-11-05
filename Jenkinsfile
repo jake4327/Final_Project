@@ -34,16 +34,30 @@ pipeline {
             }
         }
         
-        stage('Build  images') {
+        // stage('Build  images') {
+        //     steps {
+        //             script{
+        //                         sh '''
+        //                         cd Final_Project
+        //                         docker build . -t jstoneqa/sfia-3-backend
+        //                         docker push jstoneqa/sfia-3-backend
+        //                         '''
+        //                     }
+        //                 }                     
+        //     }
+        // }
+
+         stage('ssh into NEXUS and push to private repo') {
             steps {
                     script{
-                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                                sh '''
-                                cd Final_Project
-                                docker build . -t jstoneqa/sfia-3-backend
-                                docker push jstoneqa/sfia-3-backend
+                                sh ''' 
+                                ssh ubuntu@ip-10-0-3-249 <<EOF
+                                docker login -u admin -p password to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80
+                                docker pull jstoneqa/sfia-3-backend
+                                docker tag jstoneqa/sfia-3-backend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
+                                docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
+EOF                             
                                 '''
-                            }
                         }                     
             }
         }
