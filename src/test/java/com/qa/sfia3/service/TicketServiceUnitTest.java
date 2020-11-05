@@ -82,7 +82,7 @@ public class TicketServiceUnitTest {
         //Will be passed in
         Ticket newTicket = new Ticket("Areeb","Problems","Springboot","default");
         //will be findById()
-        Ticket oldTicket = new Ticket("sajid","solutions","boot","default");
+        Ticket oldTicket = new Ticket("Areeb","Problems","Springboot","default");
         oldTicket.setTicketId(id);
         //will be saved back to db and returned by method
         Ticket updatedTicket = new Ticket("Areeb","Problems","Springboot","default");
