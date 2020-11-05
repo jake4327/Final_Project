@@ -62,7 +62,7 @@ EOF
         
         stage('Deploy using docker') {
             steps {
-                sh "docker run -d -p 5001:5001 --name sfia3-sb apanj/sfia3"
+                sh "docker run -d -p 5001:5001 --name to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend"
             }
         }
     }
