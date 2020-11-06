@@ -5,6 +5,7 @@ import axios from 'axios';
 import TicketTemplate from './TicketTemplate';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
+import { CardColumns } from 'react-bootstrap';
 
 
 const Home = (props) => {
@@ -63,46 +64,58 @@ const Home = (props) => {
                 <Tabs id="ticket-tabs" activeKey={key} onSelect={(k) => setKey(k)}>
                     <Tab eventKey="all-tickets" title="All Tickets">
                         <br/>
-                        {items.map( (data) => (
-                            data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
-                        ))}
+                        <CardColumns>
+                            {items.map( (data) => (
+                                data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                            ))}
+                        </CardColumns>
                     </Tab>
                     {user.role === true ? <Tab eventKey="my-tickets" title="My Tickets">
-                        <br/>
-                        {cohorts.map(cohort => (
-                            cohort.trainees.map(trainee => (
-                                trainee.traineeId === user.traineeId ?
-                                    trainee.tickets.map(ticket => (
-                                        <TicketTemplate data={ticket} key={ticket.ticketId} />
-                                    ))
-                                : ""
-                            ))
-                        ))}
+                        <CardColumns>
+                            <br/>
+                            {cohorts.map(cohort => (
+                                cohort.trainees.map(trainee => (
+                                    trainee.traineeId === user.traineeId ?
+                                        trainee.tickets.map(ticket => (
+                                            <TicketTemplate data={ticket} key={ticket.ticketId} />
+                                        ))
+                                    : ""
+                                ))
+                            ))}
+                        </CardColumns>
                     </Tab> : ""}
                     {cohorts.map( (cohort) => (
                         <Tab eventKey={cohort.cohortId} title={cohort.name} key={cohort.cohortId}>
                             <br/>
-                            {cohort.trainees.map(trainee => (
-                                trainee.tickets.map(ticket => (
-                                    ticket.status === false ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
-                                ))
-                            ))}
+                            <CardColumns>
+                                {cohort.trainees.map(trainee => (
+                                    trainee.tickets.map(ticket => (
+                                        ticket.status === false ? <TicketTemplate data={ticket} key={ticket.ticketId}/> : ""
+                                    ))
+                                ))}
+                            </CardColumns>
                         </Tab>
                     ))}
                     <Tab eventKey="oldest" title="Oldest Tickets">
-                        {oldTickets.map( (data) => (
-                            data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
-                        ))}
+                        <CardColumns>
+                            {oldTickets.map( (data) => (
+                                data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                            ))}
+                        </CardColumns>
                     </Tab>
                     <Tab eventKey="newest" title="Newest Tickets">
-                        {newTickets.map( (data) => (
-                            data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
-                        ))}
+                        <CardColumns>
+                            {newTickets.map( (data) => (
+                                data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
+                            ))}
+                        </CardColumns>
                     </Tab>
                     <Tab eventKey="solved" title="Solved Tickets">
-                        {items.map(ticket => (
-                            ticket.status === true ? <TicketTemplate data={ticket} key={ticket.ticketId} /> : ""
-                        ))}
+                        <CardColumns>
+                            {items.map(ticket => (
+                                ticket.status === true ? <TicketTemplate data={ticket} key={ticket.ticketId} /> : ""
+                            ))}
+                        </CardColumns>
                     </Tab>
                 </Tabs>
             </Jumbotron>
