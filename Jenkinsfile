@@ -34,18 +34,18 @@ pipeline {
             }
         }
         
-        // stage('Build  images') {
-        //     steps {
-        //             script{
-        //                         sh '''
-        //                         cd Final_Project
-        //                         docker build . -t jstoneqa/sfia-3-backend
-        //                         docker push jstoneqa/sfia-3-backend
-        //                         '''
-        //                     }
-        //                 }                     
-        //     }
-        // }
+        stage('Testing development branch') {
+            steps {
+                    script{
+                                sh '''
+                                git clone -b development https://github.com/jake4327/Final_Project.git
+                                cd Final_Project
+                                docker build .
+                                '''
+                            }
+                        }                     
+            }
+        }
 
         stage('SSH into NEXUS and push to private repo'){
             steps{
