@@ -13,8 +13,7 @@ pipeline {
             steps {
                 sh '''
                 rm -rf Final_Project
-                git clone -b aws-test https://github.com/jake4327/Final_Project.git
-                cd Final_Project
+                git clone -b developmnet https://github.com/jake4327/Final_Project.git
                 '''
             }
         }
@@ -23,7 +22,6 @@ pipeline {
             steps {
                     script{
                                 sh '''
-                                git checkout development
                                 cd Final_Project
                                 docker build .
                                 '''
