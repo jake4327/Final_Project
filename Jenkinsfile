@@ -44,6 +44,14 @@ EOF
                 '''
             }
         }
+
+        stage ('Kubectl'){
+          steps {
+              sh '''
+              kubectl get pods
+              '''
+          }
+        }
         
         stage('Deploy using docker') {
             steps {
