@@ -15,8 +15,7 @@ const Home = (props) => {
     const [key, setKey] = useState('all-tickets');
     const [cohorts, setCohorts] = useState([]);
     const [user, setUser] = useState({data:{}});
-    let oldTickets = items.slice().sort((a,b) => b.localDateTime - a.localDateTime);
-    let newTickets = oldTickets.slice().reverse();
+    let newTickets = items.slice().reverse();
     const data = JSON.parse(localStorage.getItem("user"));
     //console.log(cohorts);
     //console.log(JSON.stringify(user.tickets));
@@ -98,7 +97,7 @@ const Home = (props) => {
                     ))}
                     <Tab eventKey="oldest" title="Oldest Tickets">
                         <CardColumns>
-                            {oldTickets.map( (data) => (
+                            {items.map( (data) => (
                                 data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
                             ))}
                         </CardColumns>
