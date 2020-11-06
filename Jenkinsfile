@@ -44,7 +44,6 @@ pipeline {
                                 '''
                             }
                         }                     
-            }
         }
 
         stage('SSH into NEXUS and push to private repo'){
