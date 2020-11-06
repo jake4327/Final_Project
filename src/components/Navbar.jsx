@@ -2,14 +2,16 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
+import {useHistory} from 'react-router-dom';
 
 const Navigationbar = () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    const history = useHistory();
 
     const handleLogOut = (click) => {
         click.preventDefault();
         localStorage.removeItem("user");
-        window.location.href="/";
+        history.push("/");
     }
 
     return (

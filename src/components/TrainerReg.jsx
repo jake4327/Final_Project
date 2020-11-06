@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {useHistory} from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
@@ -6,11 +7,12 @@ import axios from 'axios';
 const TrainerReg = () => {
     const [trainers, setTrainers] = useState([]);
     const [error, setError] = useState(null);
+    const history = useHistory();
 
     const handleClick = (trainer) => {
         console.log(trainer);
         localStorage.setItem("user",JSON.stringify(trainer));
-        window.location.href="/home";
+        history.push("/home");
     }
     
     useEffect( () => {
@@ -31,9 +33,9 @@ const TrainerReg = () => {
         return (
             <Jumbotron>
                 {trainers.map( trainer => (
-                    <Button variant="primary" type="submit" onClick={() => handleClick(trainer)} key={trainer.trainerId}>
+                    <><Button variant="primary" type="submit" onClick={() => handleClick(trainer)} key={trainer.trainerId}>
                         {trainer.forename} {trainer.surname}
-                    </Button>
+                    </Button>  </>
                 ))}
             </Jumbotron>
         );

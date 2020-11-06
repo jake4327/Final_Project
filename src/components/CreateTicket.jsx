@@ -25,12 +25,11 @@ const CreateTicket = () => {
         })
         .then(function (response) {
             console.log(response);
+            history.push("/home");
         })
         .catch(function (error) {
             console.log(error);
         });
-        history.push("/home");
-        window.location.reload();
     }
 
     const handleTitle = event => {

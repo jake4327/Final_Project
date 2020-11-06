@@ -17,22 +17,11 @@ const EditSolution = (props) => {
         })
         .then(function (response) {
             console.log(response);
+            history.push({pathname: "/home"});
         })
         .catch(function (error) {
             console.log(error);
         });
-        window.location.reload();
-        axios.put(`http://localhost:8080/updateStatus/${data.ticketId}`, {
-            status: true
-        })
-        .then(function (response) {
-            console.log(response);
-        })
-        .then(function (error) {
-            console.log(error);
-        });
-        history.push({pathname: "/home"});
-        window.location.reload();
     }
 
     const handleSolution = event => {

@@ -21,12 +21,11 @@ const EditTicket = (props) => {
         })
         .then(function (response) {
             console.log(response);
+            history.push({pathname: "/home"});
         })
         .catch(function (error) {
             console.log(error);
         });
-        history.push({pathname: "/home"});
-        window.location.reload();
     }
 
     const handleTitle = event => {
