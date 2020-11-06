@@ -35,6 +35,8 @@ EOF
         stage('Build image') {
             steps {
                 sh '''
+                rm -rf Final_Project
+                git clone -b build https://github.com/jake4327/Final_Project.git
                 cd Final_Project
                 docker build -t jstoneqa/sfia-3-backend .
                 '''
