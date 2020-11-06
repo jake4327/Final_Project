@@ -36,7 +36,7 @@ EOF
             steps {
                 sh '''
                 cd Final_Project
-                docker build . jstoneqa/sfia-3-backend
+                docker build -t jstoneqa/sfia-3-backend .
                 '''
             }
         }
@@ -53,13 +53,13 @@ EOF
             }
         }
 
-        stage ('Kubectl'){
-          steps {
-              sh '''
-              kubectl get pods
-              '''
-          }
-        }
+        // stage ('Kubectl'){
+        //   steps {
+        //       sh '''
+        //       kubectl get pods
+        //       '''
+        //   }
+        // }
         
         stage('Deploy using docker') {
             steps {
