@@ -22,8 +22,10 @@ pipeline {
             steps {
                     script{
                                 sh '''
+                                ssh ubuntu@10.0.3.69  <<EOF 
                                 cd Final_Project
-                                docker build .
+                                mvn test >> test.txt
+EOF
                                 '''
                             }
                         }                     
