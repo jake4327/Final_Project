@@ -79,7 +79,7 @@ const TicketTemplate = (props) => {
 
     return (
         <>
-            <Card style={{ width: '25rem' }}>
+            <Card border="primary" style={{ width: '25rem' }}>
                 <Card.Body>
                     <Card.Title>Title: {props.data.title}</Card.Title>
                     <Card.Text>
