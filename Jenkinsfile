@@ -48,7 +48,7 @@ EOF
         stage ('Kubectl'){
           steps {
               sh '''
-              kubectl delete -f Final_Project/without_nginx
+              kubectl get pods
               '''
           }
         }
