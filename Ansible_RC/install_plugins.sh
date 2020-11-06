@@ -2,7 +2,7 @@
 set -e
 
 plugin_dir=/var/lib/jenkins/plugins
-plugins="github credentials-bindings workflow-job workflow-aggregator pipeline-aws"
+plugins="github credentials-bindings workflow-job workflow-aggregator pipeline-aws github-branch-source gradle okhttp-api pam-auth pipeline-github-lib ssh-slaves timestamper kubernetes-client-api"
 file_owner=jenkins.jenkins
 
 mkdir -p /var/lib/jenkins/plugins
