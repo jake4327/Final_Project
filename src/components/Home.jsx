@@ -70,8 +70,8 @@ const Home = (props) => {
                         </CardColumns>
                     </Tab>
                     {user.role === true ? <Tab eventKey="my-tickets" title="My Tickets">
+                        <br/>
                         <CardColumns>
-                            <br/>
                             {cohorts.map(cohort => (
                                 cohort.trainees.map(trainee => (
                                     trainee.traineeId === user.traineeId ?
@@ -96,6 +96,7 @@ const Home = (props) => {
                         </Tab>
                     ))}
                     <Tab eventKey="oldest" title="Oldest Tickets">
+                        <br/>
                         <CardColumns>
                             {items.map( (data) => (
                                 data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
@@ -103,6 +104,7 @@ const Home = (props) => {
                         </CardColumns>
                     </Tab>
                     <Tab eventKey="newest" title="Newest Tickets">
+                        <br/>
                         <CardColumns>
                             {newTickets.map( (data) => (
                                 data.status === false ? <TicketTemplate data={data} key={data.ticketId}/> : ""
@@ -110,6 +112,7 @@ const Home = (props) => {
                         </CardColumns>
                     </Tab>
                     <Tab eventKey="solved" title="Solved Tickets">
+                        <br/>
                         <CardColumns>
                             {items.map(ticket => (
                                 ticket.status === true ? <TicketTemplate data={ticket} key={ticket.ticketId} /> : ""
