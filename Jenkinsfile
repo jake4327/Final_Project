@@ -25,6 +25,7 @@ pipeline {
                                 ssh ubuntu@10.0.3.69  <<EOF 
                                 cd Final_Project
                                 mvn test >> test.txt
+                                cat test.txt
 EOF
                                 '''
                             }
