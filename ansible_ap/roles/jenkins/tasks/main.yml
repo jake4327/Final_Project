@@ -2,6 +2,7 @@
 
 - name: Update APT package manager repositories cache
   become: yes
+  become_user: root
   apt:
     update_cache: yes
 
@@ -30,32 +31,81 @@
     dest=/etc/default/jenkins regexp="^JAVA_ARGS="-Djava.awt.headless=true"" state=absent
   become: true
 
-- name: disable setup wizard
-  lineinfile:
-    dest=/etc/default/jenkins
-    line='JAVA_ARGS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"' state=present
-  become: true
+# - name: disable setup wizard
+#   lineinfile:
+#     dest=/etc/default/jenkins
+#     line='JAVA_ARGS="-Djava.awt.headless=true -Djenkins.install.runSetupWizard=false"' state=present
+#   become: true
 
-- name: ensure jenkins is running
-  service: name=jenkins state=started enabled=yes
-  become: true
-
-- name: wait for Jenkins to start
-  wait_for: port=8080 delay=20
-
-- name: Download jenkins CLI jar
-  get_url:
-    url: http://localhost:8080/jnlpJars/jenkins-cli.jar
-    dest: /opt/jenkins-cli.jar
-    mode: 755
+- name: Disable setup wizard
+  become_user: root
   become: yes
+  lineinfile:
+    path: /etc/default/jenkins
+    insertafter: EOF
+    state: present
+    line: 'JENKINS_ARGS="$JENKINS_ARGS -Djenkins.install.runSetupWizard=false"'
+- name: Create folder for groovy scripts
+  become_user: root
+  become: yes
+  file:
+    name: /var/lib/jenkins/init.groovy.d
+    state: directory
+    mode: 0755
+- name: Create admin user for Jenkins service
+  become_user: root
+  become: yes
+  copy:
+    dest: /var/lib/jenkins/init.groovy.d/basic-security.groovy
+    content: |
+      #!groovy
+      import jenkins.model.*
+      import hudson.security.*
+      import jenkins.install.InstallState
+      def instance = Jenkins.getInstance()
+      println "--> creating local user 'jenkins'"
+      // Create user with custom pass
+      def user = instance.getSecurityRealm().createAccount('jenkins', 'password')
+      user.save()
+      def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
+      strategy.setAllowAnonymousRead(false)
+      instance.setAuthorizationStrategy(strategy)
+      if (!instance.installState.isSetupComplete()) {
+        println '--> Neutering SetupWizard'
+        InstallState.INITIAL_SETUP_COMPLETED.initializeState()
+      }
+      instance.save()
+# - name: Install Jenkins plugins
+#   become_user: root
+#   become: yes
+#   script: "{{ playbook_dir }}/install_plugins.sh"
+- name: Restart Jenkins service
+  become_user: root
+  become: yes
+  service:
+    name: jenkins
+    state: restarted
 
-- name: slurp the initial admin password
-  slurp:
-    src: /var/lib/jenkins/secrets/initialAdminPassword
-  register: jenkins_password
-  become: true
+# - name: ensure jenkins is running
+#   service: name=jenkins state=started enabled=yes
+#   become: true
 
-- name: Print initialadminpassword to login
-  debug:
-    msg: "initialAdminPassword is {{ jenkins_password['content'] | b64decode }}"
+# - name: wait for Jenkins to start
+#   wait_for: port=8080 delay=20
+
+# - name: Download jenkins CLI jar
+#   get_url:
+#     url: http://localhost:8080/jnlpJars/jenkins-cli.jar
+#     dest: /opt/jenkins-cli.jar
+#     mode: 755
+#   become: yes
+
+# - name: slurp the initial admin password
+#   slurp:
+#     src: /var/lib/jenkins/secrets/initialAdminPassword
+#   register: jenkins_password
+#   become: true
+
+# - name: Print initialadminpassword to login
+#   debug:
+#     msg: "initialAdminPassword is {{ jenkins_password['content'] | b64decode }}"
