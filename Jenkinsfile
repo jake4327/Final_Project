@@ -24,7 +24,7 @@ EOF
                         }                     
         }
 
-        stage('Build image') {
+        stage('Build Backend image') {
             steps {
                 sh '''
                 rm -rf Final_Project
