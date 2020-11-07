@@ -82,12 +82,14 @@ EOF
         //   }
         // }
         
-        stage('Deploy using docker') {
+        stage('SSH into NEXUS and deploy images') {
             steps {
                 sh '''
+                ssh ubuntu@10.0.3.249 <<EOF
                 docker run -d -p 5001:5001 --name sfia3-backend  jstoneqa/sfia-3-backend
                 sleep 20
                 docker run -d -p 3000:3000 --name sfia3-frontend  jstoneqa/sfia-3-frontend
+EOF
                 '''
             }
         }
