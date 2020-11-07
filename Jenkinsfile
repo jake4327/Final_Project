@@ -77,7 +77,9 @@ EOF
         stage ('Kubectl'){
           steps {
               sh '''
+              ssh ubuntu@10.0.3.249 <<EOF
               kubectl get pods
+EOF
               '''
           }
         }
