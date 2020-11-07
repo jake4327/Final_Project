@@ -74,13 +74,13 @@ EOF
             }
         }
 
-        // stage ('Kubectl'){
-        //   steps {
-        //       sh '''
-        //       kubectl get pods
-        //       '''
-        //   }
-        // }
+        stage ('Kubectl'){
+          steps {
+              sh '''
+              kubectl get pods
+              '''
+          }
+        }
         
         stage('SSH into NEXUS and deploy images') {
             steps {
