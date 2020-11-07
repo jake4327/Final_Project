@@ -70,7 +70,11 @@ EOF
         
         stage('Deploy using docker') {
             steps {
-                sh "docker run -d -p 5001:5001 --name sfia3  jstoneqa/sfia-3-backend"
+                sh '''
+                docker run -d -p 5001:5001 --name sfia3-backend  jstoneqa/sfia-3-backend
+                sleep 20
+                docker run -d -p 3000:3000 --name sfia3-frontend  jstoneqa/sfia-3-frontend
+                '''
             }
         }
     }
