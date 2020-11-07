@@ -24,35 +24,49 @@ EOF
                         }                     
         }
 
-        stage('Build Backend image') {
+        stage('SSH into NEXUS and Build Backend image') {
             steps {
                 sh '''
+                ssh ubuntu@10.0.3.249 <<EOF
                 rm -rf Final_Project
                 git clone -b build https://github.com/jake4327/Final_Project.git
                 cd Final_Project
                 docker build -t jstoneqa/sfia-3-backend .
+EOF
                 '''
             }
         }
         
-        stage('Build Frontend image') {
+        stage('SSH into NEXUS and Build Frontend image') {
             steps {
                 sh '''
+                ssh ubuntu@10.0.3.249 <<EOF
                 rm -rf Final_Project
                 git clone -b react https://github.com/jake4327/Final_Project.git
                 cd Final_Project
                 docker build -t jstoneqa/sfia-3-frontend .
+EOF
                 '''
             }
         }
 
-        stage('SSH into NEXUS and push to private repo'){
+        stage('SSH into NEXUS and push backend to private repo'){
             steps{
                 sh '''
                 ssh ubuntu@10.0.3.249 <<EOF
                 docker login -u admin -p password to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80
                 docker tag jstoneqa/sfia-3-backend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
                 docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
+EOF
+                '''
+            }
+        }
+
+        stage('SSH into NEXUS and push frontend to private repo'){
+            steps{
+                sh '''
+                ssh ubuntu@10.0.3.249 <<EOF
+                docker login -u admin -p password to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80
                 docker tag jstoneqa/sfia-3-frontend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-frontend
                 docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-frontend
 EOF
