@@ -8,21 +8,13 @@ pipeline {
                 '''
             }
         }
-
-        stage('Clone repo') {
-            steps {
-                sh '''
-                rm -rf Final_Project
-                git clone -b development https://github.com/jake4327/Final_Project.git
-                '''
-            }
-        }
-        
-        stage('Testing development branch') {
+        stage('Unit and Integration Testing') {
             steps {
                     script{
                                 sh '''
-                                ssh ubuntu@10.0.3.69  <<EOF 
+                                ssh ubuntu@10.0.3.69  <<EOF
+                                rm -rf Final_Project
+                                git clone -b development https://github.com/jake4327/Final_Project.git
                                 cd Final_Project
                                 mvn test >> test.txt
                                 cat test.txt
@@ -35,6 +27,8 @@ EOF
         stage('Build image') {
             steps {
                 sh '''
+                rm -rf Final_Project
+                git clone -b build https://github.com/jake4327/Final_Project.git
                 cd Final_Project
                 docker build -t jstoneqa/sfia-3-backend .
                 '''
@@ -63,7 +57,7 @@ EOF
         
         stage('Deploy using docker') {
             steps {
-                sh "docker run -d -p 5001:5001 --name jstoneqa to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend"
+                sh "docker run -d -p 5001:5001 --name sfia3  jstoneqa/sfia-3-backend"
             }
         }
     }
