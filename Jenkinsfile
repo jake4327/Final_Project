@@ -34,6 +34,17 @@ EOF
                 '''
             }
         }
+        
+        stage('Build Frontend image') {
+            steps {
+                sh '''
+                rm -rf Final_Project
+                git clone -b react https://github.com/jake4327/Final_Project.git
+                cd Final_Project
+                docker build -t jstoneqa/sfia-3-frontend .
+                '''
+            }
+        }
 
         stage('SSH into NEXUS and push to private repo'){
             steps{
@@ -42,6 +53,8 @@ EOF
                 docker login -u admin -p password to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80
                 docker tag jstoneqa/sfia-3-backend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
                 docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
+                docker tag jstoneqa/sfia-3-frontend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-frontend
+                docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-frontend
 EOF
                 '''
             }
