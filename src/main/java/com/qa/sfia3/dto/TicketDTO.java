@@ -1,23 +1,25 @@
 package com.qa.sfia3.dto;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 public class TicketDTO {
+
     private Long ticketId;
     private String title;
     private String description;
+    private String topic;
     private java.time.LocalDateTime localDateTime;
-    private String trainee;
     private Boolean status;
+    private String solution;
 
     public TicketDTO() {
     }
 
-    public TicketDTO(String title, String description, String trainee) {
+    public TicketDTO(String title, String description, String topic, String solution) {
         this.title = title;
         this.description = description;
-        this.trainee = trainee;
+        this.topic = topic;
+        this.solution = solution;
     }
 
     public Long getTicketId() {
@@ -44,12 +46,12 @@ public class TicketDTO {
         this.description = description;
     }
 
-    public String getTrainee() {
-        return trainee;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setTrainee(String trainee) {
-        this.trainee = trainee;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public Boolean getStatus() {
@@ -63,4 +65,8 @@ public class TicketDTO {
     public LocalDateTime getLocalDateTime() { return localDateTime; }
 
     public void setLocalDateTime(LocalDateTime localDateTime) { this.localDateTime = localDateTime; }
+
+    public String getSolution() { return solution; }
+
+    public void setSolution(String solution) { this.solution = solution; }
 }

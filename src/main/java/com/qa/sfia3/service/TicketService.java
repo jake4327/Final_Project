@@ -8,8 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,29 +37,36 @@ public class TicketService {
     }
 
     public Boolean deleteTicket(Long id) {
-        if(!this.repo.existsById(id)) {
-            throw new TicketNotFoundException();
-        }
+//        this.repo.deleteById(id);
+//        return !this.repo.existsById(id);
+//        if(this.repo.existsById(id)) {
+//            throw new TicketNotFoundException();
+//        }
         this.repo.deleteById(id);
-        return this.repo.existsById(id);
-    }
-
-    public TicketDTO updateStatus(Long id, Ticket ticket) {
-        Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
-        update.setStatus(ticket.getStatus());
-        return this.mapToDTO(this.repo.save(ticket));
+        return !this.repo.existsById(id);
     }
 
     public TicketDTO editTicket(Long id, Ticket ticket) {
-        Ticket update = this.repo.findById(id).orElseThrow(TicketNotFoundException::new);
-        update.setTitle(ticket.getTitle());
-        update.setDescription(ticket.getDescription());
-        update.setTrainee(ticket.getTrainee());
-        return this.mapToDTO(this.repo.save(ticket));
+        Optional<Ticket> optTicket = this.repo.findById(id);
+        Ticket oldTicket = optTicket.orElseThrow(() -> new TicketNotFoundException());
+        oldTicket.setTitle(ticket.getTitle());
+        oldTicket.setDescription(ticket.getDescription());
+        oldTicket.setTopic(ticket.getTopic());
+        TicketDTO saved = this.mapToDTO(this.repo.save(oldTicket));
+        return saved;
     }
 
     public TicketDTO getTicketById(Long id) {
         return this.mapToDTO(this.repo.findById(id).orElseThrow(TicketNotFoundException::new));
+    }
+
+    public TicketDTO updateSolution(Long id, Ticket ticket) {
+        Optional<Ticket> optTicket = this.repo.findById(id);
+        Ticket oldTicket = optTicket.orElseThrow(() -> new TicketNotFoundException());
+        oldTicket.setSolution(ticket.getSolution());
+        oldTicket.setStatus(true);
+        TicketDTO saved = this.mapToDTO(this.repo.save(oldTicket));
+        return saved;
     }
 
 }

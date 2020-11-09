@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -62,4 +65,7 @@ override.tf.json
 
 # Include tfplan files to ignore the plan output of command: terraform plan -out=tfplan
 # example: *tfplan*
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
