@@ -6,7 +6,9 @@
 
 ## Design
 
-### Database Design 
+### Database Design
+
+ ![](images/EER_Diagram.png)
 
 ### Class Diagram 
 
