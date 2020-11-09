@@ -22,7 +22,7 @@ const Home = (props) => {
     console.log(user);
 
     useEffect( () => {
-        axios.get("http://localhost:8080/viewAllTickets")
+        axios.get(`http://${process.env.REACT_APP_BACKEND_API}:8080/viewAllTickets`)
         .then(res => res)
         .then(
             (res) => {

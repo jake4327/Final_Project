@@ -47,7 +47,7 @@ const TicketTemplate = (props) => {
     const deleteTicket = () => {
         let data = props.data;
         console.log(data);
-        axios.delete(`http://localhost:8080/deleteTicket/${data.ticketId}`)
+        axios.delete(`http://${process.env.REACT_APP_BACKEND_API}:8080/deleteTicket/${data.ticketId}`)
         .then(function (response) {
             console.log(response);
             history.go(0);

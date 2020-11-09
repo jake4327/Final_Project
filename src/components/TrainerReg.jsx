@@ -16,7 +16,7 @@ const TrainerReg = () => {
     }
     
     useEffect( () => {
-        axios.get("http://localhost:8080/getAllTrainers")
+        axios.get(`http://${process.env.REACT_APP_BACKEND_API}:8080/getAllTrainers`)
         .then(res => res)
         .then(
             (res) => {
