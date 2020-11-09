@@ -12,6 +12,8 @@
 
 ### Class Diagram 
 
+ ![](images/ClassDiagram.png)
+ 
 ### Website Design 
 
 ### AWS Infrastructure  
