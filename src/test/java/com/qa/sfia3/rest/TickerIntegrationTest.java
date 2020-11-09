@@ -31,6 +31,8 @@ import org.springframework.test.web.servlet.ResultMatcher;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.sfia3.domain.Ticket;
+
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import static org.junit.Assert.assertEquals;
@@ -170,41 +172,41 @@ public class TickerIntegrationTest {
 
     
 
-    @Test
-    void testUpdateStatus() throws Exception {
-        //add a ticket
-        Ticket oldTicket = new Ticket("yoyo","ayy","idunno", "default");
-        String requestBody = this.mapper.writeValueAsString(oldTicket);
-        RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
-        ResultMatcher checkStatus = status().is(201);
-        Ticket savedTicket = new Ticket("yoyo","ayy","idunno", "default");
-        savedTicket.setTicketId(1L);
-        String resultBody = this.mapper.writeValueAsString(savedTicket);
-        ResultMatcher checkBody = content().json(resultBody);
-        MvcResult result = this.mockMVC.perform(request).andExpect(checkStatus).andReturn();
-        // In case you need to access the actual result as an object:
-        String reqBody = result.getResponse().getContentAsString();
-
-        Ticket ticketResult = this.mapper.readValue(reqBody, Ticket.class);
-        assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
-
-        // edit the ticket that was just added
-        Ticket newTicket = new Ticket("yoyo","ayy","idunno", "default");
-        String ticketValue = this.mapper.writeValueAsString(newTicket);
-        RequestBuilder ask = put("/updateStatus/1").contentType(MediaType.APPLICATION_JSON).content(ticketValue);
-//        ResultMatcher Status = status().isAccepted();
-        ResultMatcher Status = status().is(200);
-        Ticket updatedTicket = new Ticket("yoyo","ayy","idunno", "default");
-        updatedTicket.setTicketId(1L);
-
-        String results = this.mapper.writeValueAsString(updatedTicket);
-        ResultMatcher check = content().json(results);
-        this.mockMVC.perform(ask).andExpect(Status);
-        MvcResult res = this.mockMVC.perform(ask).andExpect(Status).andReturn();
-        String req = res.getResponse().getContentAsString();
-        Ticket ticketR = this.mapper.readValue(reqBody, Ticket.class);
-        assertThat(ticketR).isEqualToIgnoringGivenFields(updatedTicket, "localDateTime");
-    }
+//    @Test
+//    void testUpdateStatus() throws Exception {
+//        //add a ticket
+//        Ticket oldTicket = new Ticket("yoyo","ayy","idunno", "default");
+//        String requestBody = this.mapper.writeValueAsString(oldTicket);
+//        RequestBuilder request = post("/addTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
+//        ResultMatcher checkStatus = status().is(201);
+//        Ticket savedTicket = new Ticket("yoyo","ayy","idunno", "default");
+//        savedTicket.setTicketId(1L);
+//        String resultBody = this.mapper.writeValueAsString(savedTicket);
+//        ResultMatcher checkBody = content().json(resultBody);
+//        MvcResult result = this.mockMVC.perform(request).andExpect(checkStatus).andReturn();
+//        // In case you need to access the actual result as an object:
+//        String reqBody = result.getResponse().getContentAsString();
+//
+//        Ticket ticketResult = this.mapper.readValue(reqBody, Ticket.class);
+//        assertThat(ticketResult).isEqualToIgnoringGivenFields(savedTicket, "localDateTime");
+//
+//        // edit the ticket that was just added
+//        Ticket newTicket = new Ticket("yoyo","ayy","idunno", "default");
+//        String ticketValue = this.mapper.writeValueAsString(newTicket);
+//        RequestBuilder ask = put("/updateStatus/1").contentType(MediaType.APPLICATION_JSON).content(ticketValue);
+////        ResultMatcher Status = status().isAccepted();
+//        ResultMatcher Status = status().is(200);
+//        Ticket updatedTicket = new Ticket("yoyo","ayy","idunno", "default");
+//        updatedTicket.setTicketId(1L);
+//
+//        String results = this.mapper.writeValueAsString(updatedTicket);
+//        ResultMatcher check = content().json(results);
+//        this.mockMVC.perform(ask).andExpect(Status);
+//        MvcResult res = this.mockMVC.perform(ask).andExpect(Status).andReturn();
+//        String req = res.getResponse().getContentAsString();
+//        Ticket ticketR = this.mapper.readValue(reqBody, Ticket.class);
+//        assertThat(ticketR).isEqualToIgnoringGivenFields(updatedTicket, "localDateTime");
+//    }
     @Test
 //    @Sql("/test.sql")
     void testGetTicketById() throws Exception {
