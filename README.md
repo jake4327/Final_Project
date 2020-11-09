@@ -4,6 +4,8 @@
 
 ### Jira Board
 
+![](images/Sprint.png)
+
 ## Design
 
 ### Database Design
