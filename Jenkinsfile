@@ -37,12 +37,13 @@ EOF
                 spring.datasource.username=$USER
                 spring.datasource.password=$PASSWD
 EOF
-}
+
                 docker build -t jstoneqa/sfia-3-backend .
 EOF
                 '''
             }
         }
+     }
         
         stage('SSH into NEXUS and Build Frontend image') {
             steps {
