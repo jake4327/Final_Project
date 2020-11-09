@@ -31,12 +31,12 @@ EOF
                 rm -rf Final_Project
                 git clone -b build https://github.com/jake4327/Final_Project.git
                 cd Final_Project
-                cat >> src/main/resources/application-dev.properties << EOF
+                cat >> src/main/resources/application-dev.properties <<EOF
                 spring.jpa.hibernate.ddl-auto=create
                 spring.datasource.url=jdbc:mysql://$RDS:3306/tickets
                 spring.datasource.username=$USER
-                spring.datasource.password=$PASSWD
-EOF
+                spring.datasource.password=$PASSWD 
+                EOF
 
                 docker build -t jstoneqa/sfia-3-backend .
 EOF
