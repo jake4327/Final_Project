@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,7 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2ef2d19-aa5d-471d-8ce0-51be0c4b9eb3" name="Default Changelist" comment="Plan for Jenkinsfile made." />
+    <list default="true" id="a2ef2d19-aa5d-471d-8ce0-51be0c4b9eb3" name="Default Changelist" comment="Plan for Jenkinsfile made.">
+      <change beforePath="$PROJECT_DIR$/.idea/SFIA_3_assessment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SFIA_3_assessment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,11 +36,8 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-<<<<<<< HEAD
         <entry key="$PROJECT_DIR$" value="ansible" />
-=======
         <entry key="$PROJECT_DIR$" value="aws" />
->>>>>>> f9af31e265f07412a1bdabc512b08fb630ede4ab
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -44,54 +49,15 @@
       </MavenGeneralSettings>
     </option>
   </component>
-<<<<<<< HEAD
-  <component name="ProjectId" id="1irdUUDqEr4X8fLPXH5fNUT3dng" />
-=======
   <component name="ProjectId" id="1irbSoLEMCaz7hcurPHaoAtu03D" />
->>>>>>> f9af31e265f07412a1bdabc512b08fb630ede4ab
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-<<<<<<< HEAD
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
-  </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="9fa40636-2f83-4230-9904-366dab597f86" name="Default Changelist" comment="" />
-      <created>1602669663866</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1602669663866</updated>
-      <workItem from="1602669666943" duration="4604000" />
-      <workItem from="1603095552245" duration="67000" />
-      <workItem from="1603095863129" duration="49000" />
-      <workItem from="1603095927678" duration="51000" />
-    </task>
-    <task id="LOCAL-00001" summary="created ansible playbook file">
-      <created>1602770345925</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1602770345925</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
-=======
-    <property name="TF_FMT" value="false" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
@@ -107,6 +73,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Sfia3Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="SFIA_3_assessment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.qa.sfia3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qa.sfia3.Sfia3Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Sfia3Application" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -159,7 +143,6 @@
       <updated>1602853417632</updated>
     </task>
     <option name="localTasksCounter" value="6" />
->>>>>>> f9af31e265f07412a1bdabc512b08fb630ede4ab
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,30 +161,50 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-<<<<<<< HEAD
     <MESSAGE value="created ansible playbook file" />
     <option name="LAST_COMMIT_MESSAGE" value="created ansible playbook file" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1694" y="26" width="1014" height="1005" key="CommitChangelistDialog2" timestamp="1602770345663">
-      <screen x="70" y="27" width="2976" height="1023" />
+    <state x="72" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604960384358">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="1694" y="26" width="1014" height="1005" key="CommitChangelistDialog2/70.27.2976.1023@70.27.2976.1023" timestamp="1602770345663" />
-    <state x="207" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1603095606940">
-      <screen x="70" y="27" width="1296" height="741" />
+    <state x="72" y="84" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741@72.27.1294.741" timestamp="1604960384358" />
+    <state x="319" y="48" width="790" height="705" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1604960360115">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="207" y="31" width="1022" height="737" key="SettingsEditor/70.27.1296.741@70.27.1296.741" timestamp="1603095606940" />
-    <state x="1801" y="257" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1602770355205">
-      <screen x="70" y="27" width="2976" height="1023" />
+    <state x="319" y="48" width="790" height="705" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/72.27.1294.741@72.27.1294.741" timestamp="1604960360115" />
+    <state width="1248" height="382" key="GridCell.Tab.0.bottom" timestamp="1604960457507">
+      <screen x="72" y="27" width="1294" height="741" />
     </state>
-    <state x="1801" y="257" width="800" height="543" key="Vcs.Push.Dialog.v2/70.27.2976.1023@70.27.2976.1023" timestamp="1602770355205" />
-=======
-    <MESSAGE value="Work on README  to get risk assessment and MoSCoW report complete" />
-    <MESSAGE value="Terraform file that is being implimented to have good AWS structure." />
-    <MESSAGE value="Plan for Jenkinsfile made." />
-    <option name="LAST_COMMIT_MESSAGE" value="Plan for Jenkinsfile made." />
-  </component>
-  <component name="WindowStateProjectService">
+    <state width="1248" height="382" key="GridCell.Tab.0.bottom/72.27.1294.741@72.27.1294.741" timestamp="1604960457507" />
+    <state width="1248" height="382" key="GridCell.Tab.0.center" timestamp="1604960457506">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.0.center/72.27.1294.741@72.27.1294.741" timestamp="1604960457506" />
+    <state width="1248" height="382" key="GridCell.Tab.0.left" timestamp="1604960457506">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.0.left/72.27.1294.741@72.27.1294.741" timestamp="1604960457506" />
+    <state width="1248" height="382" key="GridCell.Tab.0.right" timestamp="1604960457506">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.0.right/72.27.1294.741@72.27.1294.741" timestamp="1604960457506" />
+    <state width="1248" height="382" key="GridCell.Tab.1.bottom" timestamp="1604960457508">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.1.bottom/72.27.1294.741@72.27.1294.741" timestamp="1604960457508" />
+    <state width="1248" height="382" key="GridCell.Tab.1.center" timestamp="1604960457507">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.1.center/72.27.1294.741@72.27.1294.741" timestamp="1604960457507" />
+    <state width="1248" height="382" key="GridCell.Tab.1.left" timestamp="1604960457507">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.1.left/72.27.1294.741@72.27.1294.741" timestamp="1604960457507" />
+    <state width="1248" height="382" key="GridCell.Tab.1.right" timestamp="1604960457507">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1248" height="382" key="GridCell.Tab.1.right/72.27.1294.741@72.27.1294.741" timestamp="1604960457507" />
     <state x="1909" y="286" width="824" height="515" key="IDE.errors.dialog" timestamp="1602676225421">
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
@@ -214,6 +217,5 @@
       <screen x="1366" y="0" width="1920" height="1080" />
     </state>
     <state x="2129" y="232" width="384" height="630" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/70.27.1296.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1602782833430" />
->>>>>>> f9af31e265f07412a1bdabc512b08fb630ede4ab
   </component>
 </project>
