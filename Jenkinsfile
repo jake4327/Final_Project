@@ -25,25 +25,16 @@ EOF
 
         stage('SSH into NEXUS and Build Backend image') {
             steps {
-            withCredentials([string(credentialsId: 'DB_ENDPOINT', variable: 'RDS'), string(credentialsId: 'PASSWD', variable: 'PW'), string(credentialsId: 'USER', variable: 'user')]) {
                 sh '''
                 ssh ubuntu@10.0.3.249 <<EOF
                 rm -rf Final_Project
                 git clone -b build https://github.com/jake4327/Final_Project.git
                 cd Final_Project
-                cat >> src/main/resources/application-dev.properties <<EOF
-                spring.jpa.hibernate.ddl-auto=create
-                spring.datasource.url=jdbc:mysql://$RDS:3306/tickets
-                spring.datasource.username=$USER
-                spring.datasource.password=$PASSWD 
-                EOF
-
                 docker build -t jstoneqa/sfia-3-backend .
 EOF
                 '''
             }
         }
-     }
         
         stage('SSH into NEXUS and Build Frontend image') {
             steps {
