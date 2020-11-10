@@ -132,7 +132,6 @@ In the CI-pipeline we build images for frontend and backend for the application 
 |Missing task skills                           |When a team member will either think that they are incompetent within an area and they are not and implement something that is insecure or the team member knows that they are incompetent within the area and no other team member can help work on the project area can lead to software being implemented incorrectly or insecurely. |8                                             |8             |Team 4             |For all team member to be highly critical of their own skills and if they do not feel comfortable implementing something they always have another team member in their area of the project. IF both team member in the DevOps and the Software engineering team feel as if they do not understand what they are doing properly the protocol to follow is to redo the modules on the QA web page and then complete a course on cloud academy so that they can ascertain an understanding of the topic. There are tests on Cloud Academy for the team member to assess their skill level objectively.|8                                                      |2                                                                                                                                                          |
 |Groupthink                                    |This occurs when team members don't speak up when consensus of the team is to implement or complete a task in a certain way than they think is the best possible way.                        |9                                             |10            |Team 4             |Planning poker will mitigate the risk to a certain degree so that when a team member feels differently on a topic they won't have a team consensus before making their decision. This will lead to the individual providing reason as to why they believe a task should be done a certain way. Team members are also reminded that the they should always voice their opinion if they think the plan or tactic is incorrect or will lead to security issues |7                                                      |2                                                                                                                                                          |
 
-<<<<<<< HEAD
 ## CI-Pipeline
 
 ![](images/pipeline.png)
@@ -153,10 +152,8 @@ In the CI-pipeline we build images for frontend and backend for the application 
 ### Unit and Integration Testing Results
 
 ![](images/Testing.png)
-=======
->>>>>>> f1877a27389b892ba436cafe994fbaeb129e3fbc
 
 ## Future Updates
 
 * Log in functionality for application
-* Increased automation via use of Ansible to provision NEXUS and fully automate Jenkins
+* Increased automation via use of Ansible to provision NEXUS
