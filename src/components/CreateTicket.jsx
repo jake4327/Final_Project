@@ -15,7 +15,7 @@ const CreateTicket = () => {
 
     const handleClick = (click) => {
         click.preventDefault();
-        axios.post(`http://${process.env.REACT_APP_BACKEND_API}:8080/addTicket`, {
+        axios.post(`bkend/addTicket`, {
             title: title,
             description: description,
             topic: topic,
