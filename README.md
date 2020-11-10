@@ -169,34 +169,6 @@ In the CI-pipeline we build images for frontend and backend for the application 
 
 [Back to Contents](#Contents)
 
-## CI-Pipeline
-
-![](images/pipeline.png)
-
-[Back to Contents](#Contents)
-
-## Provisioning Services using Ansible
-
-The project requires the use of ansible to configure services.  Once Terraform has been provisioned the Virtual Machines (VM), Ansible then ssh’s into the the VM for Jenkins and configures it in such a way that the set up wizard is  bypassed and and a user is automatically created. This step helped in saving time during the whole CI pipeline process.
-
-[Back to Contents](#Contents)
-
-## The use of Nexus
-
-![](images/Nexus-private-repo.png)
-
-In the CI-pipeline we build images for frontend and backend for the application and then push to the NEXUS private repository for safe keeping. The picture above shows successful push of images to the private repository.
-
-[Back to Contents](#Contents)
-
-## Testing
-
-### Unit and Integration Testing Results
-
-![](images/Testing.png)
-
-[Back to Contents](#Contents)
-
 ## Future Updates
 
 * Log in functionality for application
