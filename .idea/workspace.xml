@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a7fbead1-3512-4998-8066-1d1dd1f2a6d8" name="Default Changelist" comment="Jira Board image added">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Development-Docker" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jEaljFDCmW9VDyMXyPvQUtG5SW" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
+    <property name="ExpandSpringBootSpringBootSettingsPanel" value="false" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="TF_FMT" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.35287356" />
+  </component>
+  <component name="RunManager">
+    <configuration name="spring-sfia3" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="SFIA_3_assessment" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.qa.sfia3.Sfia3Application" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="/usr/lib/jvm/java-1.8.0-openjdk-amd64/jre" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7fbead1-3512-4998-8066-1d1dd1f2a6d8" name="Default Changelist" comment="" />
+      <created>1603371858451</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603371858451</updated>
+      <workItem from="1603371860444" duration="3183000" />
+      <workItem from="1603383206811" duration="6432000" />
+      <workItem from="1604907737640" duration="2430000" />
+      <workItem from="1605002989035" duration="1041000" />
+    </task>
+    <task id="LOCAL-00001" summary="Spelling, AWS image added">
+      <created>1604908499462</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604908499462</updated>
+    </task>
+    <task id="LOCAL-00002" summary="AWS image added">
+      <created>1604908553025</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1604908553025</updated>
+    </task>
+    <task id="LOCAL-00003" summary="EER image added">
+      <created>1604909214544</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1604909214544</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Jira Board image added">
+      <created>1604909565541</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1604909565541</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Spelling, AWS image added" />
+    <MESSAGE value="AWS image added" />
+    <MESSAGE value="EER image added" />
+    <MESSAGE value="Jira Board image added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Jira Board image added" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1700" y="190" width="1375" height="760" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603380329525">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1700" y="190" width="1375" height="760" key="#com.intellij.execution.impl.EditConfigurationsDialog/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380329525" />
+    <state x="319" y="47" width="790" height="707" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1603371877985">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state x="319" y="47" width="790" height="707" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603371877985" />
+    <state width="1248" height="495" key="GridCell.Tab.0.bottom" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.0.bottom/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.0.center" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.0.center/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.0.left" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967230" />
+    <state width="1248" height="495" key="GridCell.Tab.0.left/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.0.right" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.0.right/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.1.bottom" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.1.bottom/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.1.center" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.1.center/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.1.left" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.1.left/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1248" height="495" key="GridCell.Tab.1.right" timestamp="1603396228314">
+      <screen x="72" y="27" width="1294" height="741" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.1.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1248" height="495" key="GridCell.Tab.1.right/72.27.1294.741/1366.0.1920.1080@72.27.1294.741" timestamp="1603396228314" />
+    <state width="1874" height="328" key="GridCell.Tab.2.bottom" timestamp="1603380967231">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.2.bottom/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1874" height="328" key="GridCell.Tab.2.center" timestamp="1603380967231">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.2.center/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1874" height="328" key="GridCell.Tab.2.left" timestamp="1603380967231">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.2.left/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state width="1874" height="328" key="GridCell.Tab.2.right" timestamp="1603380967231">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1874" height="328" key="GridCell.Tab.2.right/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380967231" />
+    <state x="1809" y="117" width="1024" height="852" key="SettingsEditor" timestamp="1603380625431">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1809" y="117" width="1024" height="852" key="SettingsEditor/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1603380625431" />
+    <state x="1921" y="272" width="800" height="543" key="Vcs.Push.Dialog.v2" timestamp="1605003379758">
+      <screen x="1366" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1921" y="272" width="800" height="543" key="Vcs.Push.Dialog.v2/72.27.1294.741/1366.0.1920.1080@1366.0.1920.1080" timestamp="1605003379758" />
+  </component>
+</project>
