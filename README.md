@@ -62,6 +62,8 @@ The project was planned using Atlassian Jira board. The type of planning board u
 
 ## Design
 
+__Please click on details for more information__
+
 <details> 
 
 ### Database Design
