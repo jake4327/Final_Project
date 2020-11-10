@@ -1,35 +1,33 @@
-version: '3.7'
+version: '3.3'
 services:
   frontend:
-    image: frontend
-    build: ./frontend
+    image: jstoneqa/sfia-3-frontend:nginx
+    ports:
+    - target: 3000
+      published: 3000
+      protocol: tcp
+    stdin_open: true
+    tty: true
     depends_on:
       - backend
-    environment:
-      BACKEND_URL: ${BACKEND_URL}
   backend:
-    image: backend
-    build: ./backend
-    environment:
-      TEST_DATABASE_URI: ${TEST_DATABASE_URI}
-      DATABASE_URI: ${DATABASE_URI}
-      SECRET_KEY: ${SECRET_KEY}
-      BACKEND_URL: ${BACKEND_URL}
-    depends_on:
-      - mysql
-  mysql:
-    image: mysql
-    build: ./database
-    environment:
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-  nginx:
-    image: nginx
+    image: jstoneqa/sfia-3-backend:nginx
     ports:
-      - target: 80
-        published: 80
+    - target: 8080
+      published: 8080
+      protocol: tcp
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    stdin_open: true
+    tty: true
     volumes:
     - type: bind
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
-    depends_on:
+    depends_on: 
       - frontend
+      - backend

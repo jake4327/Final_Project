@@ -1,5 +1,0 @@
-- hosts: jenkins
-  become_user: root
-  roles:
-    - jenkins
-  tags: jenkins
