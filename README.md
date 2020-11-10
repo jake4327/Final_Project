@@ -30,6 +30,11 @@
 
 ### Jira Board
 
+The project was planned using Atlassian Jira board. The type of planning board used was a Scrum board. Scrum boards use sprints, designed to focus the work on tasks and user stories and provide a sense of progression through. The picture below shows the current state of sprint that is being completed. After this MVP will be reached.
+
+ ![](images/Sprint.png)
+
+
 ## Design
 
 ### Database Design
@@ -42,7 +47,13 @@
  
 ### Website Design 
 
-### AWS Infrastructure  
+![](images/webpage-ticket-page.png)
+
+### AWS Infrastructure
+
+There are two subnets in a VPC. The public subnet contains the bastion host, that allows devlopers to connect to the instances running on the private subenet.
+The three EC2 instances running in the private subnet are the Jenkins Server, test VM and the arifact repository. These EC2 instance are able to connect to 
+the internet via the NAT gateway, which always outboud traffic but doesn't allow inbound traffic. The NACL provides sercurity to the subnets by restricting traffic. 
 
 ![](images/AWS-Architecture-AWS-Architecture.png)
 
