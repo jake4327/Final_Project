@@ -35,7 +35,7 @@ const Home = (props) => {
                 setError(error);
             }
         )
-        axios.get("http://localhost:8080/getAllCohorts")
+        axios.get("bkend/getAllCohorts")
         .then(res => res)
         .then(
             (res) => {
@@ -43,7 +43,7 @@ const Home = (props) => {
             }
         )
         if(data.traineeId != null) {
-            axios.get(`http://localhost:8080/getTraineeById/${data.traineeId}`)
+            axios.get(`bkend/getTraineeById/${data.traineeId}`)
             .then(res => res)
             .then(
                 (res) => {
