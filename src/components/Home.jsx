@@ -19,6 +19,7 @@ const Home = (props) => {
     const data = JSON.parse(localStorage.getItem("user"));
     //console.log(cohorts);
     //console.log(JSON.stringify(user.tickets));
+    console.log(data);
     console.log(user);
 
     useEffect( () => {
@@ -41,16 +42,18 @@ const Home = (props) => {
                 setCohorts(res.data);
             }
         )
-        axios.get(`http://localhost:8080/getTraineeById/${data.traineeId}`)
-        .then(res => res)
-        .then(
-            (res) => {
-                setUser(res.data);
-            }
-        )
+        if(data.traineeId != null) {
+            axios.get(`http://localhost:8080/getTraineeById/${data.traineeId}`)
+            .then(res => res)
+            .then(
+                (res) => {
+                    setUser(res.data);
+                    console.log(res);
+                }
+            )
+        }
     },[]);
 
-        
     if(error) {
         return <div>Oops... something happened... {error.message}</div>
     } else if(!isLoaded) {
