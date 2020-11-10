@@ -20,6 +20,8 @@
     * [Team](#Team)
 * [Provisioning Services using Ansible](#Provisioning-Services-using-Ansible)
 * [The use of Nexus](#The-use-of-Nexus)
+* [Testing](#Testing)
+    * [Unit and Integration Testing Results](#Unit-and-Integration-Testing-Results)
 
 
 ## Planning
@@ -113,4 +115,8 @@
 
 ![](images/Nexus-private-repo.png)
 
+# Testing
 
+## Unit and Integration Testing Results
+
+![](images/Testing.png)
