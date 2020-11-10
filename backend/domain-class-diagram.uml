@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.qa.sfia3.domain</OriginalElement>
+  <nodes>
+    <node x="30.5" y="650.0">com.qa.sfia3.domain.Cohort</node>
+    <node x="30.5" y="347.0">com.qa.sfia3.domain.Trainee</node>
+    <node x="11.0" y="887.0">com.qa.sfia3.domain.Trainer</node>
+    <node x="0.0" y="0.0">com.qa.sfia3.domain.Ticket</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.qa.sfia3.domain.Trainee" target="com.qa.sfia3.domain.Cohort">
+      <point x="21.5" y="126.5" />
+      <point x="21.5" y="-93.5" />
+    </edge>
+    <edge source="com.qa.sfia3.domain.Ticket" target="com.qa.sfia3.domain.Trainee">
+      <point x="29.125" y="148.5" />
+      <point x="145.625" y="322.0" />
+      <point x="138.0" y="322.0" />
+      <point x="21.5" y="-126.5" />
+    </edge>
+    <edge source="com.qa.sfia3.domain.Cohort" target="com.qa.sfia3.domain.Trainee">
+      <point x="-64.5" y="-93.5" />
+      <point x="-64.5" y="126.5" />
+    </edge>
+    <edge source="com.qa.sfia3.domain.Trainee" target="com.qa.sfia3.domain.Ticket">
+      <point x="-64.5" y="-126.5" />
+      <point x="52.0" y="322.0" />
+      <point x="29.125" y="322.0" />
+      <point x="-87.375" y="148.5" />
+    </edge>
+    <edge source="com.qa.sfia3.domain.Trainer" target="com.qa.sfia3.domain.Cohort">
+      <point x="-52.75" y="-126.5" />
+      <point x="63.75" y="862.0" />
+      <point x="73.5" y="862.0" />
+      <point x="-43.0" y="93.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="-569.5" y="586.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
