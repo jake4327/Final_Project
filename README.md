@@ -45,7 +45,9 @@ The project was planned using Atlassian Jira board. The type of planning board u
 
  ![](images/ClassDiagram.png)
  
-### Website Design 
+### Website Design
+
+This image show the creation of a wire frame, that laid the foundation for the website site design. The wire frame allowed for the devlopment of the react app to be able to split the application into components, this plan made it clear as to how the data should be imported, either usind states or props. The image below the wire frame shows how the application looks on the frontend.
 
 ![](images/webpage-ticket-page.png)
 
