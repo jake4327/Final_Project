@@ -8,51 +8,6 @@ pipeline {
                 '''
             }
         }
-<<<<<<< HEAD
-        stage('Clone repo') {
-            steps {
-                sh '''
-                rm -rf Final_Project
-                git clone https://github.com/jake4327/Final_Project.git
-                cd Final_Project
-
-                '''
-            }
-        }
-        stage('Install Docker') {
-            steps {
-                sh '''
-                curl https://get.docker.com | sudo bash
-                sudo usermod -aG docker $(whoami)
-                sudo chmod 666 /var/run/docker.sock
-                sudo apt update
-                '''
-            }
-        }
-
-        stage('Build docker images') {
-            steps {
-                script{
-                     sh "docker pull apanj/sfia3"
-                     }
-                }
-            }
-//         stage('Put docker images in artifact repo') {
-//             steps {
-//                 //docker push IMAGE_NAME
-//             }
-//         }
-//         stage('Run tests') {
-//             steps {
-//                 //ssh into TESTVM << EOF
-//                 //          ????
-//                 //EOF
-//             }
-//         }
-        stage('Deploy using docker') {
-            steps {
-                sh "docker run -d -p 5001:5001 --name sfia3-sb apanj/sfia3"
-=======
         stage('Unit and Integration Testing') {
             steps {
                     script{
@@ -75,7 +30,7 @@ EOF
                 rm -rf Final_Project
                 git clone -b build https://github.com/jake4327/Final_Project.git
                 cd Final_Project
-                docker build -t jstoneqa/sfia-3-backend .
+                docker build -t jstoneqa/sfia-3-backend:nginx .
 EOF
                 '''
             }
@@ -88,7 +43,7 @@ EOF
                 rm -rf Final_Project
                 git clone -b react https://github.com/jake4327/Final_Project.git
                 cd Final_Project
-                docker build -t jstoneqa/sfia-3-frontend .
+                docker build -t jstoneqa/sfia-3-frontend:nginx .
 EOF
                 '''
             }
@@ -98,9 +53,7 @@ EOF
             steps{
                 sh '''
                 ssh ubuntu@10.0.3.249 <<EOF
-                docker login -u admin -p password to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80
-                docker tag jstoneqa/sfia-3-backend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
-                docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-backend
+                docker push jstoneqa/sfia-3-backend:nginx
 EOF
                 '''
             }
@@ -110,9 +63,7 @@ EOF
             steps{
                 sh '''
                 ssh ubuntu@10.0.3.249 <<EOF
-                docker login -u admin -p password to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80
-                docker tag jstoneqa/sfia-3-frontend to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-frontend
-                docker push to-AR-8082-ac14aea09fe210ef.elb.us-east-2.amazonaws.com:80/jstoneqa/sfia-3-frontend
+                docker push jstoneqa/sfia-3-frontend:nginx
 EOF
                 '''
             }
@@ -122,25 +73,14 @@ EOF
           steps {
               sh '''
               ssh ubuntu@10.0.3.249 <<EOF
-              kubectl get pods
+              rm -rf Final_Project
+              git clone -b kubernetes https://github.com/jake4327/Final_Project.git
+              kubectl delete -f Final_Project/K8S
+              kubectl apply -f Final_Project/K8S
+              kubectl get svc
 EOF
               '''
           }
-        }
-        
-        stage('SSH into NEXUS and deploy images') {
-            steps {
-
-                sh '''
-                ssh ubuntu@10.0.3.249 <<EOF
-                docker run -d -p 5001:5001 --name sfia3-backend  jstoneqa/sfia-3-backend
-                sleep 20
-                docker run -d -p 3000:3000 --name sfia3-frontend  jstoneqa/sfia-3-frontend
-EOF
-                '''
-                sh "docker run -d -p 5001:5001 --name sfia3  jstoneqa/sfia-3-backend"
->>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088
-            }
         }
     }
 }
