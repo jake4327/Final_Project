@@ -1,6 +1,6 @@
 # Final Project
 
-##Contents
+## Contents
 
 * [Planning](#Planning)
     * [Jira Board](#Jira-Board)
