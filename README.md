@@ -122,6 +122,8 @@ The project requires the use of ansible to configure services.  Once Terraform h
 
 ![](images/Nexus-private-repo.png)
 
+In the CI-pipeline we build images for frontend and backend for the application and then push to the NEXUS private repository for safe keeping. The picture above shows successful push of images to the private repository.
+
 # Testing
 
 ## Unit and Integration Testing Results
