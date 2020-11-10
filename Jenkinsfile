@@ -78,6 +78,7 @@ EOF
               sh '''
               ssh ubuntu@10.0.3.249 <<EOF
               kubectl get pods
+              kubectl get svc
 EOF
               '''
           }
