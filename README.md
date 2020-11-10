@@ -111,4 +111,6 @@
 
 ## The use of Nexus
 
+![](images/Nexus-private-repo.png)
+
 
