@@ -12,7 +12,7 @@ const EditSolution = (props) => {
 
     const handleClick = (click) => {
         click.preventDefault();
-        axios.put(`http://${process.env.REACT_APP_BACKEND_API}:8080/editSolution/${data.ticketId}`, {
+        axios.put(`bkend/editSolution/${data.ticketId}`, {
             solution: solution
         })
         .then(function (response) {
