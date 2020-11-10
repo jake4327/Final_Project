@@ -23,6 +23,7 @@
 * [The use of Nexus](#The-use-of-Nexus)
 * [Testing](#Testing)
     * [Unit and Integration Testing Results](#Unit-and-Integration-Testing-Results)
+* [Future Updates](#Future-Updates)
 
 
 ## Planning
@@ -124,9 +125,13 @@ The project requires the use of ansible to configure services.  Once Terraform h
 
 In the CI-pipeline we build images for frontend and backend for the application and then push to the NEXUS private repository for safe keeping. The picture above shows successful push of images to the private repository.
 
-# Testing
+## Testing
 
-## Unit and Integration Testing Results
+### Unit and Integration Testing Results
 
 ![](images/Testing.png)
 
+## Future Updates
+
+* Log in functionality for application
+* Increased automation via use of Ansible to provision NEXUS and fully automate Jenkins
