@@ -76,9 +76,10 @@ EOF
           steps {
               sh '''
               ssh ubuntu@10.0.3.249 <<EOF
+              cd Final_Project
               git checkout kubernetes
               kubectl get pods
-              kubectl apply -f Final_Project/K8S
+              kubectl apply -f K8S
 EOF
               '''
           }
