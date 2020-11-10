@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   frontend:
-    image: jstoneqa/sfia-3-frontend:nginx
+    image: jstoneqa/sfia-3-frontend
     ports:
     - target: 3000
       published: 3000
@@ -11,7 +11,7 @@ services:
     depends_on:
       - backend
   backend:
-    image: jstoneqa/sfia-3-backend:nginx
+    image: jstoneqa/sfia-3-backend
     ports:
     - target: 8080
       published: 8080
