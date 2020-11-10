@@ -45,9 +45,10 @@
 * Use RDS instance to store data of application.
 * A kubernetes cluster to deploy application.
 ### Should have...
-* Two additional features implemented.
+* Three additional features implemented.
 * Cohorts
 * Filtering
+* Solutions
 ### Could have...
 * Full Automation of application
 ### Would have...
