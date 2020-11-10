@@ -14,7 +14,7 @@ const EditTicket = (props) => {
 
     const handleClick = (click) => {
         click.preventDefault();
-        axios.put(`http://${process.env.REACT_APP_BACKEND_API}:8080/editTicket/${data.ticketId}`, {
+        axios.put(`bkend/editTicket/${data.ticketId}`, {
             title: title,
             description: description,
             topic: topic
