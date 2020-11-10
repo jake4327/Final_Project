@@ -76,8 +76,10 @@ EOF
           steps {
               sh '''
               ssh ubuntu@10.0.3.249 <<EOF
+              rm -rf Final_Project
+              git clone -b kubernetes https://github.com/jake4327/Final_Project.git
               kubectl get pods
-              kubectl apply -f jenkins-test/Final_Project/K8S
+              kubectl apply -f Final_Project/K8S
 EOF
               '''
           }
