@@ -7,7 +7,10 @@
 ![](images/Sprint.png)
 
 ## Design
+### Entity Relationship Diagram
 
+ ![](images/ERD_Final_Project.png)
+ 
 ### Database Design
 
  ![](images/EER_Diagram.png)
