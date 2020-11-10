@@ -9,7 +9,6 @@
 * [Licensing & versioning](#Licensing-&-Versioning)
 * [Brief](#Brief)
     * [Project Scope](#Project-Scope)
-* [Technologies](#Technologies)
 * [Planning](#Planning)
     * [Jira Board](#Jira-Board)
 * [Design](#Design)
@@ -48,9 +47,9 @@ Version 1.0.1a
 
 ## Brief
 
-
-
 ### Project Scope
+
+SFIA 3 is a group project that will enforce agile methodologies. The aim is to address the need to address a Help queuing collection application to be used in the academy as a training aid tool. The application is to be developed with full CRUD functionality and two features of the development team's choice. Additionally a full CI pipeline to integrate and deploy new code to showcase continuous integration.
 
 ## Planning
 
