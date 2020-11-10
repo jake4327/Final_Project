@@ -62,7 +62,7 @@ The project was planned using Atlassian Jira board. The type of planning board u
 
 ## Design
 
-__Please click on details for more information__
+_Please click on details for more information_
 
 <details> 
 
@@ -159,6 +159,8 @@ In the CI-pipeline we build images for frontend and backend for the application 
 
 ### Software Engineering
 
+_Please click on details for more information_
+
 <details>
 
 |Description                                   |Assessment                                                                                                                                                                                   |Risk likelihood of occurring (1=low to 10=high)|Impact (1- 10)|Responsibility      |Proposed Mitigation                                                                                                                                                                                                                                     |Risk likelihood of occurring after mitigation in place (1 - 10)|Impact (1- 10)                                                                                                                                             |
@@ -177,6 +179,8 @@ In the CI-pipeline we build images for frontend and backend for the application 
 
 ### DevOps
 
+_Please click on details for more information_
+
 <details>
 
 |Description                                   |Assessment                                                                                                                                                                                   |Risk likelihood of occurring (1=low to 10=high)|Impact (1- 10)|Responsibility      |Proposed Mitigation                                                                                                                                                                                                                                    |Risk likelihood of occurring (1 - 10)                   |Impact (1- 10)                                                                                                                                             |
@@ -193,6 +197,8 @@ In the CI-pipeline we build images for frontend and backend for the application 
 [Back to Contents](#Contents)
 
 ### Team
+
+_Please click on details for more information_
 
 <details>
 
