@@ -16,7 +16,7 @@ const TraineeReg = () => {
     const handleClick = (click) => {
         console.log(cohort);
         click.preventDefault();
-        axios.post(`http://${process.env.REACT_APP_BACKEND_API}:8080/addTrainee`, {
+        axios.post(`bkend/addTrainee`, {
             forename: forename,
             surname: surname,
             cohort: {
@@ -51,7 +51,7 @@ const TraineeReg = () => {
     }
 
     useEffect( () => {
-        axios.get(`http://${process.env.REACT_APP_BACKEND_API}:8080/getAllCohorts`)
+        axios.get(`bkend/getAllCohorts`)
         .then(res => res)
         .then(
             (res) => {
