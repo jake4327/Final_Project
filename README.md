@@ -41,15 +41,21 @@ The project was planned using Atlassian Jira board. The type of planning board u
 
  ![](images/EER_Diagram.png)
 
+[Back to Contents](#Contents)
+
 ### Class Diagram 
 
  ![](images/ClassDiagram.png)
- 
+
+[Back to Contents](#Contents)
+
 ### Website Design
 
 This image show the creation of a wire frame, that laid the foundation for the website site design. The wire frame allowed for the devlopment of the react app to be able to split the application into components, this plan made it clear as to how the data should be imported, either usind states or props. The image below the wire frame shows how the application looks on the frontend.
 
 ![](images/webpage-ticket-page.png)
+
+[Back to Contents](#Contents)
 
 ### AWS Infrastructure
 
@@ -59,15 +65,19 @@ the internet via the NAT gateway, which always outboud traffic but doesn't allow
 
 ![](images/AWS-Architecture-AWS-Architecture.png)
 
+[Back to Contents](#Contents)
 
 ## CI-Pipeline
 
 ![](images/pipeline.png)
 
+[Back to Contents](#Contents)
+
 ## Provisioning Services using Ansible
 
 The project requires the use of ansible to configure services.  Once Terraform has been provisioned the Virtual Machines (VM), Ansible then ssh’s into the the VM for Jenkins and configures it in such a way that the set up wizard is  bypassed and and a user is automatically created. This step helped in saving time during the whole CI pipeline process.
 
+[Back to Contents](#Contents)
 
 ## The use of Nexus
 
@@ -75,11 +85,15 @@ The project requires the use of ansible to configure services.  Once Terraform h
 
 In the CI-pipeline we build images for frontend and backend for the application and then push to the NEXUS private repository for safe keeping. The picture above shows successful push of images to the private repository.
 
+[Back to Contents](#Contents)
+
 # Testing
 
 ## Unit and Integration Testing Results
 
 ![](images/Testing.png)
+
+[Back to Contents](#Contents)
 
 ## MoSCoW 
 
@@ -108,6 +122,7 @@ In the CI-pipeline we build images for frontend and backend for the application 
 ### Would have...
 * Tagging
 
+[Back to Contents](#Contents)
 
 ## Risk Assessment
 
@@ -123,6 +138,7 @@ In the CI-pipeline we build images for frontend and backend for the application 
 |Mis-communication resulting in redundant code |If there is not clear communication between the developers, this can lead to members working on the same area of the project and producing the same code twice which will end up being redundant and a waste of time. This could halt the progress of the project and cause a delay in the sprint.|5                                             |7             |Development Team   |The development team should ensure they are present for every daily stand up and are in constant communication to inform the rest of the team what they are currently working on to ensure everyone is clear on who is undertaking which task            |2                                                             |7                                                                                                                                                          |
 |Poor coding practices                         |During development, if there isn't a clear formatting/code structure, the readability of the code can be very poor, especially for anybody new trying to read and understand the code. This means that extra time is needed to understand the application and then contribute further to it|5                                             |5             |Development Team   |A clear structure should be decided on and then followed when developing the application. This will ensure that any work is readable for the entire development team and any other personnel who want to read the code. Techniques such as consistent code layout, regular commenting and name signing on methods will make it much simpler for members of the current team and any potential new members to read and understand the application.|1                                                             |5                                                                                                                                                          |
 
+[Back to Contents](#Contents)
 
 ### DevOps
 
@@ -135,6 +151,8 @@ In the CI-pipeline we build images for frontend and backend for the application 
 |COVID - 19 / illness                          |The virus is still prevalent, despite lockdown measures. It would be very possible to contract the virus or some other disease that would render the developer unable to complete the project|2                                             |5             |Development Team   |Following government advice such as the use of face covering and social distancing when in contact with people. Through good communication, the remaining members of the development team would be able to take on extra workload to finish the project.|2                                                      |5                                                                                                                                                          |
 |Kernel level threats (Docker)                 |Docker's design provides convenience however it also amplifies any vulnerabilities that are present in the kernel.                                                                           |3                                             |10            |Development Team   |Restricting unnecessary applications that run on privileged ports, allowing needed applications only.                                                                                                                                                    |1                                                      |10                                                                                                                                                         |
 
+[Back to Contents](#Contents)
+
 ### Team
 
 |Description                                   |Assessment                                                                                                                                                                                   |Risk likelihood of occurring (1=low to 10=high)|Impact (1- 10)|Responsibility      |Proposed Mitigation                                                                                                                                                                                                                                    |Risk likelihood of occurring (1 - 10)                   |Impact (1- 10)                                                                                                                                             |
@@ -145,14 +163,19 @@ In the CI-pipeline we build images for frontend and backend for the application 
 |Missing task skills                           |When a team member will either think that they are incompetent within an area and they are not and implement something that is insecure or the team member knows that they are incompetent within the area and no other team member can help work on the project area can lead to software being implemented incorrectly or insecurely. |8                                             |8             |Team 4             |For all team member to be highly critical of their own skills and if they do not feel comfortable implementing something they always have another team member in their area of the project. IF both team member in the DevOps and the Software engineering team feel as if they do not understand what they are doing properly the protocol to follow is to redo the modules on the QA web page and then complete a course on cloud academy so that they can ascertain an understanding of the topic. There are tests on Cloud Academy for the team member to assess their skill level objectively.|8                                                      |2                                                                                                                                                          |
 |Groupthink                                    |This occurs when team members don't speak up when consensus of the team is to implement or complete a task in a certain way than they think is the best possible way.                        |9                                             |10            |Team 4             |Planning poker will mitigate the risk to a certain degree so that when a team member feels differently on a topic they won't have a team consensus before making their decision. This will lead to the individual providing reason as to why they believe a task should be done a certain way. Team members are also reminded that the they should always voice their opinion if they think the plan or tactic is incorrect or will lead to security issues |7                                                      |2                                                                                                                                                          |
 
+[Back to Contents](#Contents)
+
 ## CI-Pipeline
 
 ![](images/pipeline.png)
+
+[Back to Contents](#Contents)
 
 ## Provisioning Services using Ansible
 
 The project requires the use of ansible to configure services.  Once Terraform has been provisioned the Virtual Machines (VM), Ansible then ssh’s into the the VM for Jenkins and configures it in such a way that the set up wizard is  bypassed and and a user is automatically created. This step helped in saving time during the whole CI pipeline process.
 
+[Back to Contents](#Contents)
 
 ## The use of Nexus
 
@@ -160,13 +183,19 @@ The project requires the use of ansible to configure services.  Once Terraform h
 
 In the CI-pipeline we build images for frontend and backend for the application and then push to the NEXUS private repository for safe keeping. The picture above shows successful push of images to the private repository.
 
+[Back to Contents](#Contents)
+
 ## Testing
 
 ### Unit and Integration Testing Results
 
 ![](images/Testing.png)
 
+[Back to Contents](#Contents)
+
 ## Future Updates
 
 * Log in functionality for application
 * Increased automation via use of Ansible to provision NEXUS
+
+[Back to Contents](#Contents)
