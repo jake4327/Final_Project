@@ -1,7 +1,15 @@
+## QA Academy
+
+### Cloud Native Engineer (DevOps) Learning Path
+
 # Final Project
 
 ## Contents
-
+* [Acknowledgements](#Acknowledgements)
+* [Licensing & versioning](#Licensing-&-Versioning)
+* [Brief](#Brief)
+    * [Project Scope](#Project-Scope)
+* [Technologies](#Technologies)
 * [Planning](#Planning)
     * [Jira Board](#Jira-Board)
 * [Design](#Design)
@@ -25,6 +33,24 @@
     * [Unit and Integration Testing Results](#Unit-and-Integration-Testing-Results)
 * [Future Updates](#Future-Updates)
 
+## Acknowledgements
+
+Acknowledgements go to:
+
+* QA Academy
+* Jay Grindrod (Learning Specialist)
+* Jordan Harris (Senior Technical Learning Specialist)
+* Savannah Vaithilingam (Technical Learning SPecialist)
+
+## Licensing & Versioning
+
+Version 1.0.1a
+
+## Brief
+
+
+
+### Project Scope
 
 ## Planning
 
