@@ -53,6 +53,7 @@
             <version>2.3.5</version>
         </dependency>
 
+<<<<<<< HEAD:backend/pom.xml
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
@@ -60,6 +61,9 @@
         </dependency>
 
         <dependency>
+=======
+        <!-- <dependency>
+>>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088:springboot/pom.xml
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>

@@ -1,8 +1,12 @@
 package com.qa.sfia3.domain;
 
 import javax.persistence.*;
+<<<<<<< HEAD
 import java.time.LocalDateTime;
 import java.util.Objects;
+=======
+import java.util.Date;
+>>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088
 
 @Entity
 public class Ticket {
@@ -17,6 +21,7 @@ public class Ticket {
     @Column
     private String description;
 
+<<<<<<< HEAD
     @Column()
     private String topic;
 
@@ -31,15 +36,32 @@ public class Ticket {
 
     @ManyToOne(targetEntity = Trainee.class)
     private Trainee trainee;
+=======
+    @Column
+    private Date timestamp;
+
+    @Column
+    private String trainee;
+
+    @Column
+    private Boolean status;
+>>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088
 
     public Ticket() {
     }
 
+<<<<<<< HEAD
     public Ticket(String title, String description, String topic, String solution) {
         this.title = title;
         this.description = description;
         this.topic = topic;
         this.solution = solution;
+=======
+    public Ticket(String title, String description, String trainee) {
+        this.title = title;
+        this.description = description;
+        this.trainee = trainee;
+>>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088
     }
 
     public Long getTicketId() {
@@ -50,7 +72,13 @@ public class Ticket {
         this.ticketId = ticketId;
     }
 
+<<<<<<< HEAD
     public String getTitle() { return title; }
+=======
+    public String getTitle() {
+        return title;
+    }
+>>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088
 
     public void setTitle(String title) {
         this.title = title;
@@ -64,6 +92,7 @@ public class Ticket {
         this.description = description;
     }
 
+<<<<<<< HEAD
     public String getTopic() { return topic; }
 
     public void setTopic(String topic) { this.topic = topic; }
@@ -103,5 +132,29 @@ public class Ticket {
     @Override
     public int hashCode() {
         return Objects.hash(ticketId, title, description, topic, localDateTime, status, trainee);
+=======
+    public Date getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Date timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    public String getTrainee() {
+        return trainee;
+    }
+
+    public void setTrainee(String trainee) {
+        this.trainee = trainee;
+    }
+
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+>>>>>>> bb3c44585aa05181ebca0d08d6b372947d0fa088
     }
 }
