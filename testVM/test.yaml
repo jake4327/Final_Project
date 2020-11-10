@@ -1,0 +1,15 @@
+- hosts: tests
+  become: yes
+  tasks:
+    - name: 'Install jdk'
+      apt:
+        pkg:
+          - default-jdk
+          - git
+          - maven
+        state: latest
+        update_cache: true
+
+    - name: ensure maven is installed
+      apt: name=maven update_cache=yes
+      become: yes
