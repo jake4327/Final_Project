@@ -75,24 +75,12 @@ EOF
               ssh ubuntu@10.0.3.249 <<EOF
               rm -rf Final_Project
               git clone -b kubernetes https://github.com/jake4327/Final_Project.git
-              kubectl get pods
+              kubectl delete -f Final_Project/K8S
               kubectl apply -f Final_Project/K8S
+              kubectl get svc
 EOF
               '''
           }
-        }
-        
-        stage('SSH into NEXUS and deploy images') {
-            steps {
-
-                sh '''
-                ssh ubuntu@10.0.3.249 <<EOF
-                docker run -d -p 5001:5001 --name sfia3-backend-test  jstoneqa/sfia-3-backend
-                sleep 20
-                docker run -d -p 3000:3000 --name sfia3-frontend-test  jstoneqa/sfia-3-frontend
-EOF
-                '''
-            }
         }
     }
 }
