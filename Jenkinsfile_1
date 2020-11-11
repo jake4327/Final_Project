@@ -80,7 +80,7 @@ EOF
               kubectl delete -f Final_Project/K8S
               kubectl apply -f Final_Project/K8S
               kubectl get svc
-              ECHO "We made it guys"
+              echo "We made it guys"
 EOF
               '''
           }
