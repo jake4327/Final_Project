@@ -17,7 +17,6 @@ pipeline {
                                 git clone -b development https://github.com/jake4327/Final_Project.git
                                 cd Final_Project
                                 mvn test >> test.txt
-                                cat test.txt
 EOF
                                 '''
                             }
