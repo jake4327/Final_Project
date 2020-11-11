@@ -39,7 +39,7 @@ Acknowledgements go to:
 * QA Academy
 * Jay Grindrod (Learning Specialist)
 * Jordan Harris (Senior Technical Learning Specialist)
-* Savannah Vaithilingam (Technical Learning SPecialist)
+* Savannah Vaithilingam (Technical Learning Specialist)
 
 ## Licensing & Versioning
 
@@ -76,6 +76,12 @@ _Please click on details for more information_
 
  ![](images/ClassDiagram.png)
 
+[Back to Contents](#Contents)
+
+### ERD Diagram
+
+ ![](images/ERD_Final_Project.png)
+ 
 [Back to Contents](#Contents)
 
 ### Website Design
